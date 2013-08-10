@@ -1,0 +1,6 @@
+h1.page-header
+  | Local Tech-Related Organizations
+= link_to 'Submit My Organization', new_organization_path, :class => "pull-right btn btn-success"
+= render(@organizations) || "<h2>No organizations currently listed.</h2>".html_safe
+.clear[style="padding-top:3em"]
+= paginate @organizations

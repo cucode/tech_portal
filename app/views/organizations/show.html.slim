@@ -1,0 +1,37 @@
+h1.page-header = @organization.name
+    
+h4 Purpose
+= simple_format @organization.synopsis
+
+h4 Website
+= @organization.website
+
+h4 Email
+= @organization.email
+
+h4 Phone
+= @organization.phone
+
+h4 Submitter's name
+= @organization.submitter_name
+
+h4 Submitter's email:
+= @organization.submitter_email
+
+h4 Submitter's phone:
+= @organization.submitter_phone
+
+h4 Contacts for this Organization
+table.table-striped.table-bordered.span6
+  thead
+    th Name
+    th Title
+    th Phone
+  - @organization.contacts.each do |c|
+    tr
+      td = c.name
+      td = c.title
+      td = c.phone
+
+p.clearfix
+= link_to 'Back to Organization list', organizations_path, :class => "btn btn-success"

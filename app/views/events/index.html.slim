@@ -1,0 +1,4 @@
+h1.page-header Upcoming Local Tech-Related Events
+= render(partial: "event", collection: @events, as: :event)
+.clear[style="padding-top:3em"]
+= paginate @events
