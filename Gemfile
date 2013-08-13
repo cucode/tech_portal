@@ -67,3 +67,6 @@ gem 'feedzirra'
 gem 'validates_email_format_of'
 gem 'unidecode'
 gem "nested_form"
+
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
