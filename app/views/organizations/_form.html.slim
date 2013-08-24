@@ -7,12 +7,12 @@
     = f.input :synopsis, :input_html => { :rows => 15, :class => "span5" }
     = f.input :website, :input_html => { :class => "span5" }
     = f.input :email, :input_html => { :class => "span5" }
-    = f.input :phone
+    = f.input :phone, :input_html => { :class => "input-medium bfh-phone", :"data-country" => "US", :type => 'tel' }
     
     h3.text-center Submitter's Information
     = f.input :submitter_name, :input_html => { :class => "span5" }
     = f.input :submitter_email, :input_html => { :class => "span5" }
-    = f.input :submitter_phone
+    = f.input :submitter_phone, :input_html => { :class => "input-medium bfh-phone", :"data-country" => "US", :type => 'tel' }
     
     h3.text-center Organizational Contact Information
     = f.simple_fields_for :contacts do |p|
@@ -29,5 +29,5 @@
     = "  or  " 
     = link_to "Cancel", organizations_path, :class => "btn btn-warning"
 
-.alert.alert-info
-  | All submissions are reviewed prior to publication on the site. Your organization will not appear until it is approved by a staff member.
+.alert.alert-info.span-5
+	| All submissions are reviewed prior to publication on the site. Your organization will not appear until it is approved by a staff member.

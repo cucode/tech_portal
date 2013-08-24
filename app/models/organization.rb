@@ -15,14 +15,23 @@ class Organization < ActiveRecord::Base
   validates :name, :presence => {:message => "Please provide the organization's name."}
   validates :synopsis, :presence => {:message => "Please provide a summary of the organization's purpose."}
   validates :email, :allow_blank => true, :email_format => {:message => 'Please provide a valid email address.'}
-  #validates :website, :allow_blank => true, :url => {:message => 'Please provide a complete AND and valid url (http://www.mysite.com).'}
-  #validates :phone, :allow_blank => true, :phone => {:message => 'Please provide a complete phone number as 10 consecutive digits (no dashes or parens), including the area code.'}
+  validates :website, :allow_blank => true, format: {
+    with: URI::regexp(%w(http)),
+    message: 'Please provide a complete AND and valid url (http://www.mysite.com).'
+  }
+  validates :phone, :allow_blank => true, format: {
+   with: /[0-9]{10}/,
+   message: 'Please provide a complete phone number, including the area code.'
+  }
   validates :status, inclusion: { in: STATUSES }, presence: true
 
   validates :submitter_name, :presence => {:message => "Please provide your name in case we need to contact you about your organization."}
   validates :submitter_email, :presence => {:message => "Please provide your an email address in case we need to contact you about your organization."},
     :email_format => {:message => 'Please provide a valid email address.'}
-  #validates :submitter_phone, :presence => true, :phone => {:message => 'Please provide a complete phone number as 10 consecutive digits (no dashes or parens), including the area code.'}
+  validates :submitter_phone, :allow_blank => true, format: {
+    with: /[0-9]{10}/,
+    message: 'Please provide a complete phone number, including the area code.'
+  }
 
   validates :slug, :uniqueness => true
   before_validation do |org|

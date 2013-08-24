@@ -1,4 +1,4 @@
 h1.page-header Upcoming Local Tech-Related Events
-= render(partial: "event", collection: @events, as: :event)
+= render(@events) || "<h2>No events currently listed.</h2>".html_safe
 .clear[style="padding-top:3em"]
 = paginate @events

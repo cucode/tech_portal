@@ -1,5 +1,6 @@
 h3[style="padding-top:1.5em"] = event.title
-h5 = event.published.localtime.strftime("%B %e, %Y %I:%M%p")
-= event.summary.html_safe
+h5 = "#{event.group}"
+h5 = event.time.localtime.strftime("%B %e, %Y %I:%M%p")
+= event.description.html_safe
 .clear
 h4.pull-right  = link_to "See the details of this event...", event.url

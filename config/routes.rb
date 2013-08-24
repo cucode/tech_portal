@@ -9,10 +9,10 @@ CODE::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#show'
   
-  resources 'events', only: [:index]
+  resources :events, only: [:index]
+  resources :jobs, only: [:index]
   resources :organizations, only: [:index, :show, :new, :create]
   resources :pages, only: [:show]
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

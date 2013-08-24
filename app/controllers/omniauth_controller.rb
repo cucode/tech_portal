@@ -7,7 +7,7 @@ class OmniauthController < Devise::OmniauthCallbacksController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
     else
-      user = User.new(email: omniauth['info']['email'], password: Devise.friendly_token[0,20])
+      user = User.find_by_email(omniauth['info']['email']) || User.new(email: omniauth['info']['email'], password: Devise.friendly_token[0,20])
       user.authentications.build(provider: omniauth['provider'], uid: omniauth['uid'])
       if user.save
         flash[:notice] = "Signed in successfully."

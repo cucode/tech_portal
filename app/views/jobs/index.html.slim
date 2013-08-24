@@ -1,0 +1,4 @@
+h1.page-header Tech Employment Opportunities
+= render(@jobs) || "<h2>No jobs currently listed.</h2>".html_safe
+.clear[style="padding-top:3em"]
+= paginate @jobs

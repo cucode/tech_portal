@@ -22,14 +22,12 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.brand[href="#"]
-            | C.O.D.E.
+					= link_to "C.O.D.E.", root_path, :class => "brand"
           .container.nav-collapse
             ul.nav
-              li = link_to "Home", root_path
               li = link_to "Organizations", organizations_path
               li = link_to "Events", events_path
-              li = link_to "Jobs Board", root_path
+              li = link_to "Employment", jobs_path
               
             ul.nav.pull-right
               - if user_signed_in?

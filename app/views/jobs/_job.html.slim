@@ -1,0 +1,6 @@
+h3[style="padding-top:1.5em"] = job.title
+h5 = job.company
+h5 = job.listed.localtime.strftime("%B %e, %Y %I:%M%p")
+= job.description.html_safe
+.clear
+h4.pull-right  = link_to "See the details of this job...", job.url
