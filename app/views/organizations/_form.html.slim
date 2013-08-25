@@ -7,12 +7,12 @@
     = f.input :synopsis, :input_html => { :rows => 15, :class => "span5" }
     = f.input :website, :input_html => { :class => "span5" }
     = f.input :email, :input_html => { :class => "span5" }
-    = f.input :phone, :input_html => { :class => "input-medium bfh-phone", :"data-country" => "US", :type => 'tel' }
+    = f.input :phone, :input_html => { :class => "input-medium" }
     
     h3.text-center Submitter's Information
     = f.input :submitter_name, :input_html => { :class => "span5" }
     = f.input :submitter_email, :input_html => { :class => "span5" }
-    = f.input :submitter_phone, :input_html => { :class => "input-medium bfh-phone", :"data-country" => "US", :type => 'tel' }
+    = f.input :submitter_phone, :input_html => { :class => "input-medium" }
     
     h3.text-center Organizational Contact Information
     = f.simple_fields_for :contacts do |p|

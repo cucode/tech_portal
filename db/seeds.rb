@@ -96,6 +96,10 @@ o.save!
 
 `rake update:all`
 
+exit
+
+# crud from original to populate database: no longer used
+
 if Rails.env == 'development'
   def randomname
     Random.firstname + ' ' + Random.lastname
