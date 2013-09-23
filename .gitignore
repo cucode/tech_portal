@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# FOR SECURITY, FOR NOW
+/config/initializers/secret_token.rb
+/config/initializers/session_store.rb
+/config/initializers/devise.rb
+/lib/tasks/update.rb
