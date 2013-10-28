@@ -3,6 +3,7 @@ require 'test_helper'
 class OrganizationsControllerTest < ActionController::TestCase
   setup do
     @organization = organizations(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -18,10 +19,20 @@ class OrganizationsControllerTest < ActionController::TestCase
 
   test "should create organization" do
     assert_difference('Organization.count') do
-      post :create, organization: { email: @organization.email, name: @organization.name, phone: @organization.phone, slug: @organization.slug, status: @organization.status, submitter_email: @organization.submitter_email, submitter_name: @organization.submitter_name, submitter_phone: @organization.submitter_phone, synopsis: @organization.synopsis, website: @organization.website }
+      post :create, organization: {
+        email:  @organization.email,
+        name:   @organization.name,
+        phone:  @organization.phone,
+        slug:   @organization.slug,
+        status: @organization.status,
+        submitter_email: @organization.submitter_email,
+        submitter_name:  @organization.submitter_name,
+        submitter_phone: @organization.submitter_phone,
+        synopsis: @organization.synopsis,
+        website:  @organization.website }
     end
 
-    assert_redirected_to organization_path(assigns(:organization))
+    assert_redirected_to organizations_path
   end
 
   test "should show organization" do
@@ -35,7 +46,18 @@ class OrganizationsControllerTest < ActionController::TestCase
   end
 
   test "should update organization" do
-    patch :update, id: @organization, organization: { email: @organization.email, name: @organization.name, phone: @organization.phone, slug: @organization.slug, status: @organization.status, submitter_email: @organization.submitter_email, submitter_name: @organization.submitter_name, submitter_phone: @organization.submitter_phone, synopsis: @organization.synopsis, website: @organization.website }
+    patch :update, id: @organization, organization: {
+      email:  @organization.email,
+      name:   @organization.name,
+      phone:  @organization.phone,
+      slug:   @organization.slug,
+      status: @organization.status,
+      submitter_email: @organization.submitter_email,
+      submitter_name:  @organization.submitter_name,
+      submitter_phone: @organization.submitter_phone,
+      synopsis: @organization.synopsis,
+      website:  @organization.website }
+
     assert_redirected_to organization_path(assigns(:organization))
   end
 

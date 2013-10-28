@@ -3,23 +3,23 @@
 one:
   name: MyString
   synopsis: MyText
-  website: MyString
-  email: MyString
+  website: http://my-website-one.com
+  email: my-email-one@my-domain.com
   phone: 1
-  status: MyString
-  slug: MyString
+  status: published
+  slug: slug-one
   submitter_name: MyString
-  submitter_email: MyString
+  submitter_email: my-submitter-email-one@my-domain.com
   submitter_phone: 1
 
 two:
   name: MyString
   synopsis: MyText
-  website: MyString
-  email: MyString
+  website: http://my-website-two.com
+  email: my-email-two@my-domain.com
   phone: 1
-  status: MyString
-  slug: MyString
+  status: published
+  slug: slug-two
   submitter_name: MyString
-  submitter_email: MyString
+  submitter_email: my-submitter-email-two@my-domain.com
   submitter_phone: 1

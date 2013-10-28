@@ -26,7 +26,6 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(organization_params)
-
     respond_to do |format|
       if @organization.save
         format.html { redirect_to organizations_path, notice: 'Thank you for your submission. It will be published once it is reviewed by the staff.' }

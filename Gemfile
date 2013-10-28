@@ -27,7 +27,8 @@ gem "rails_admin_nestable", github: "dalpo/rails_admin_nestable"
 gem "rails_admin_tag_list"
 
 # Testing
-gem "random_data", group: :development
+gem "better_errors", group: :development
+gem "pry", group: :test
 
 # Presentation
 gem "bootstrap-sass"
