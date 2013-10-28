@@ -2,7 +2,7 @@ module ApplicationHelper
   ALERT_TYPES = [:error, :info, :success, :warning]
 
   def bootstrap_flash
-    output = ''
+    output = ""
     flash.each do |type, message|
       next if message.blank?
       type = :success if type == :notice
@@ -14,8 +14,8 @@ module ApplicationHelper
   end
 
   def flash_container(type, message)
-    raw(content_tag(:div, :class => "alert alert-#{type}") do
-      content_tag(:a, raw("&times;"), :class => 'close', :data => {:dismiss => 'alert'}) +
+    raw(content_tag(:div, class: "alert alert-#{type}") do
+      content_tag(:a, raw("&times;"), class: "close", data: { dismiss: "alert"}) +
       message
     end)
   end

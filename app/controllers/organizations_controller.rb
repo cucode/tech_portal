@@ -4,7 +4,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.published.order(name: :asc).page(params[:page]).per(10)
+    @organizations = Organization.published.order(name: :asc).page(params[:page]).per(DEFAULT_PAGE_LENGTH)
   end
 
   # GET /organizations/1

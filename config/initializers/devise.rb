@@ -15,7 +15,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -74,7 +74,7 @@ Devise.setup do |config|
   # By default Devise will store the user in session. You can skip storage for
   # :http_auth and :token_auth by adding those symbols to the array below.
   # Notice that if you are skipping storage for all authentication paths, you
-  # may want to disable generating routes to Devise's sessions controller by
+  # may want to disable generating routes to Devise"s sessions controller by
   # passing :skip => :sessions to `devise_for` in your config/routes.rb
   config.skip_session_storage = [:http_auth]
 
@@ -107,7 +107,7 @@ Devise.setup do |config|
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day
-  # their account can't be confirmed with the token any more.
+  # their account can"t be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
   # config.confirm_within = 3.days
@@ -125,7 +125,7 @@ Devise.setup do |config|
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
 
-  # If true, extends the user's remember period when remembered via cookie.
+  # If true, extends the user"s remember period when remembered via cookie.
   # config.extend_remember_period = false
 
   # Options to be passed to the created cookie. For instance, you can set
@@ -178,7 +178,7 @@ Devise.setup do |config|
   # config.reset_password_keys = [ :email ]
 
   # Time interval you can reset your password with a reset password key.
-  # Don't put a too small interval or your users won't have the time to
+  # Don"t put a too small interval or your users won"t have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
 
@@ -198,11 +198,11 @@ Devise.setup do |config|
 
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
-  # "users/sessions/new". It's turned off by default because it's slower if you
+  # "users/sessions/new". It"s turned off by default because it"s slower if you
   # are using only default views.
   # config.scoped_views = false
 
-  # Configure the default scope given to Warden. By default it's the first
+  # Configure the default scope given to Warden. By default it"s the first
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 
@@ -227,9 +227,9 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
-  config.omniauth :linkedin, '2zy296uh0g5i', 'mN6uqPJK0QGA6YpM', 
-    :client_options => {:authorize_url => 'https://www.linkedin.com/uas/oauth/authorize'}
+  # config.omniauth :github, "APP_ID", "APP_SECRET", :scope => "user,public_repo"
+  config.omniauth :linkedin, "2zy296uh0g5i", "mN6uqPJK0QGA6YpM",
+    :client_options => {:authorize_url => "https://www.linkedin.com/uas/oauth/authorize"}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
