@@ -43,6 +43,7 @@ gem "turbolinks"
 gem "uglifier", ">= 1.3.0"
 
 # Production
+gem "newrelic_rpm", group: :production
 gem "paper_trail", ">= 3.0.0.beta1"
 gem "rails_12factor", group: :production
 
