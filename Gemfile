@@ -4,6 +4,7 @@ source "https://rubygems.org"
 # Services
 gem "dalli"
 gem "feedzirra"
+gem "mailchimp-api", "~> 2.0.4"
 gem "memcachier"
 gem "pg", group: :production
 gem "sqlite3", group: :development

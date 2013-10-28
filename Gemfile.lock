@@ -90,6 +90,7 @@ GEM
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
+    excon (0.27.6)
     execjs (2.0.2)
     feedzirra (0.2.1)
       curb (~> 0.8.1)
@@ -125,6 +126,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailchimp-api (2.0.4)
+      excon (>= 0.16.0)
+      json (>= 1.7.7)
     memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (1.25)
@@ -259,6 +263,7 @@ DEPENDENCIES
   feedzirra
   jbuilder (~> 1.2)
   jquery-rails
+  mailchimp-api (~> 2.0.4)
   memcachier
   nested_form
   newrelic_rpm
