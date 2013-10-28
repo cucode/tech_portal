@@ -2,7 +2,9 @@ ruby "2.0.0"
 source "https://rubygems.org"
 
 # Services
+gem "dalli"
 gem "feedzirra"
+gem "memcachier"
 gem "pg", group: :production
 gem "sqlite3", group: :development
 

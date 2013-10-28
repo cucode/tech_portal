@@ -79,6 +79,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     curb (0.8.5)
+    dalli (2.6.4)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -124,6 +125,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.2)
@@ -251,11 +253,13 @@ DEPENDENCIES
   bootstrap-sass
   cancan
   coffee-rails (~> 4.0.0)
+  dalli
   devise
   dragonfly (~> 0.9.15)
   feedzirra
   jbuilder (~> 1.2)
   jquery-rails
+  memcachier
   nested_form
   newrelic_rpm
   omniauth-linkedin
