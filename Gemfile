@@ -1,71 +1,51 @@
-source 'https://rubygems.org'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
 ruby "2.0.0"
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+source "https://rubygems.org"
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+# Services
+gem "feedzirra"
+gem "pg", group: :production
+gem "sqlite3", group: :development
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+# Framework
+gem "rack-cache", require: "rack/cache"
+gem "rails", "~> 4.0.0"
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+# Data
+gem "acts-as-taggable-on"
+gem "ancestry"
+gem "dragonfly", "~>0.9.15"
+gem "rmagick"
+gem "unidecode"
+gem "validates_email_format_of"
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+# Authentication
+gem "cancan"
+gem "devise"
+gem "omniauth-linkedin"
+gem "rails_admin", github: "sferik/rails_admin"
+gem "rails_admin_nestable", github: "dalpo/rails_admin_nestable"
+gem "rails_admin_tag_list"
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+# Testing
+gem "random_data", group: :development
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# Presentation
+gem "bootstrap-sass"
+gem "coffee-rails", "~> 4.0.0"
+gem "jbuilder", "~> 1.2"
+gem "jquery-rails"
+gem "nested_form"
+gem "sass-rails", "~> 4.0.0"
+gem "simple_form", "~> 3.0.0beta1"
+gem "slim-rails"
+gem "turbolinks"
+gem "uglifier", ">= 1.3.0"
+
+# Production
+gem "paper_trail", ">= 3.0.0.beta1"
+gem "rails_12factor", group: :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem "sdoc", require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
-gem 'devise'
-gem 'omniauth-linkedin'
-gem 'acts-as-taggable-on'
-gem 'simple_form', '~> 3.0.0beta1'
-gem 'random_data', group: :development
-gem 'paper_trail', github: 'airblade/paper_trail', :branch => 'rails4'
-gem 'ancestry'
-gem 'cancan'
-gem 'bootstrap-sass'
-
-gem 'rails_admin', github: 'sferik/rails_admin'
-gem 'rails_admin_tag_list'
-gem 'rails_admin_nestable', github: 'dalpo/rails_admin_nestable'
-
-gem 'rmagick'
-gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly', '~>0.9.15'
-gem 'slim-rails'
-
-gem 'feedzirra'
-gem 'validates_email_format_of'
-gem 'unidecode'
-gem "nested_form"
