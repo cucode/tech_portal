@@ -1,4 +1,4 @@
-User.create(email: "admin@domain.com", password: Devise.friendly_token[0,20], role_list: "superadmin")
+User.create(email: "admin@domain.com", password: Devise.friendly_token[0,20], role_list: "admin")
 
 Page.create(title: "History of C.O.D.E", url: "/", content: <<HTML
   <div class="row-fluid">

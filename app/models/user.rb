@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w(editor admin superadmin)
+  ROLES = %w(editor admin)
 
 
   # Mixins

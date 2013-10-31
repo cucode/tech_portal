@@ -25,9 +25,6 @@ gem "validates_email_format_of"
 gem "cancan"
 gem "devise"
 gem "omniauth-linkedin"
-gem "rails_admin", github: "sferik/rails_admin"
-gem "rails_admin_nestable", github: "dalpo/rails_admin_nestable"
-gem "rails_admin_tag_list"
 
 # Testing
 gem "better_errors", group: :development
