@@ -32,10 +32,10 @@ html
             ul.nav.pull-right
               - if user_signed_in?
                 - if can? :manage, :all
-                  li = link_to "Admin", rails_admin_path
-                li = link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to logout?' }
+                  li= link_to "Admin", rails_admin_path
+                li= link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete
               - else
-                li = link_to 'Sign in with LinkedIn', user_omniauth_authorize_path(:linkedin)
+                li= link_to 'Sign in with LinkedIn', user_omniauth_authorize_path(:linkedin)
 
     .container
       = bootstrap_flash
