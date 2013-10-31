@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 63b86096a87b9790edfb21b5b37163e435b16f4d
+  revision: f1d31a39fa39e260d581af714c550cfdaf959ec4
   specs:
     rails_admin (0.5.0)
       bootstrap-sass (~> 2.3)
@@ -68,6 +68,8 @@ GEM
       erubis (>= 2.6.6)
     bootstrap-sass (2.3.2.2)
       sass (~> 3.2)
+    bootswatch-rails (0.5.0)
+      railties (>= 3.1)
     builder (3.1.4)
     cancan (1.6.10)
     coderay (1.1.0)
@@ -90,7 +92,7 @@ GEM
       multi_json (~> 1.0)
       rack
     erubis (2.7.0)
-    excon (0.27.6)
+    excon (0.28.0)
     execjs (2.0.2)
     feedzirra (0.2.1)
       curb (~> 0.8.1)
@@ -149,8 +151,9 @@ GEM
       oauth
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
-    paper_trail (3.0.0.beta1)
+    paper_trail (3.0.0.rc1)
       activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.6)
@@ -255,6 +258,7 @@ DEPENDENCIES
   ancestry
   better_errors
   bootstrap-sass
+  bootswatch-rails
   cancan
   coffee-rails (~> 4.0.0)
   dalli
