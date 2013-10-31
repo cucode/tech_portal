@@ -7,11 +7,9 @@ class User < ActiveRecord::Base
   has_paper_trail
   acts_as_taggable_on :roles
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, :database_authenticatable,# :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :omniauthable, :database_authenticatable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :token_authenticatable
 
 
   # Relationships and scopes
