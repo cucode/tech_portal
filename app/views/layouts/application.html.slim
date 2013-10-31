@@ -22,13 +22,13 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-					= link_to "C.O.D.E.", root_path, :class => "brand"
+          = link_to "C.O.D.E.", root_path, :class => "brand"
           .container.nav-collapse
             ul.nav
               li = link_to "Organizations", organizations_path
               li = link_to "Events", events_path
               li = link_to "Employment", jobs_path
-              
+
             ul.nav.pull-right
               - if user_signed_in?
                 - if can? :manage, :all
@@ -36,35 +36,10 @@ html
                 li = link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to logout?' }
               - else
                 li = link_to 'Sign in with LinkedIn', user_omniauth_authorize_path(:linkedin)
-                  
+
     .container
-      .row
-        .span9
-          = bootstrap_flash
-          = yield
-        .span3
-          .well.small
-            | Associated with:
-            h5
-              | Champaign County
-              |  Economic Development
-              |  Corporation 
-            address
-              | 1817 South Neil Street,
-              br
-              | Suite 100
-              br
-              | Champaign, Illinois 61820
-              br
-              | 217.359.6261
-              br
-              a[href="mailto:edc@champaigncountyedc.org"]
-                | edc@champaigncountyedc.org
-            h4[style="text-align: center; font-weight: bold"]
-              | Membership is managed with a LinkedIn Group.
-              div[style="padding-top:1em"]
-                a.btn.btn-success href="http://www.linkedin.com/groups?gid=3725345&trk=myg_ugrp_ovr"
-                  | Join Group
+      = bootstrap_flash
+      = yield
       footer
         p
           | © C.O.D.E.

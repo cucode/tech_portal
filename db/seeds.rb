@@ -1,16 +1,87 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create(email: "joe@castanet.com", password: Devise.friendly_token[0,20], role_list: "superadmin")
 
-User.create(email: 'joe@castanet.com', password: Devise.friendly_token[0,20], role_list: 'superadmin')
+Page.create(title: "History of C.O.D.E", url: "/", content: <<HTML
+  <div class="row-fluid">
+    <div class="span8">
+      <h2 id="what-is-code">What is CODE?</h2>
+      <p>
+        Many members of the group may not know the history of CODE. In brief… The
+        closure of Motorola’s Champaign site in 2007 dumped 200+ tech professionals
+        into the local job market. We knew that this was more than the community
+        could absorb, so a group of employees got together to attract businesses to
+        the area. Through their efforts and coordination with other localorganizations,
+        Yahoo! and Qualcomm sites were opened. Since then, we have helped to attract
+        other companies and to spawn projects to benefit the local tech community.
+      </p>
+      <p>
+        A small group of people constitute the current CODE board.
+      These are not elected positions. The leaders are volunteer who have the
+      drive and passion for developing the community at their own time and
+      expense. We meet informally with local organizations and coordinate mostly
+      through email. (Personally, I would like a slightly more formal
+      organization.)
+      </p>
+      <p>
+        Mostly, the CODE board is an influencing organization.
+      We have no income, but we have lots of contacts with local and remote
+      businesses, organizations, and individuals.
+      </p>
+      <p>
+        Our projects include:
+      </p>
+      <ul>
+        <li>working with the EDC on a central community
+      job board;</li>   <li>discussions with Parkland about starting a Mobile
+      Development Certificate program;</li>   <li>meeting with the U of I to
+      help them understand the needs of local business and to help make hiring
+      from the University more accessible for medium or small business.</li>
+      </ul>
+      <p>
+        We have worked on or discussed many other projects, but
+        we are constrained by the number of volunteers we have.
+      </p>
+      <p>
+        Regarding meetings… We have discussed having quarterly, or even monthly,
+        meetings and events of various types for the technical community. The
+        EDC already sponsors regular TechMixes. (One was held yesterday
+        evening.) Most likely, I think that the first set of open meetings
+        for CODE should be quarterly meetings to discuss the needs of the
+        technical community and how we can act to push those items forward.
+      </p>
+      <p>
+        We would gladly be a conduit for helping to advertise
+        meetings on technical topics, but we would need someone from the
+        community to volunteer to lead and organize the meeting. Our current
+        volunteers are at capacity.</p>  <p>If anyone would like to
+        volunteer to assist in any capacity, we would welcome their help.
+      </p>
+    </div>
+    <div class="span4">
+      <div class="well small">
+        Associated with:
+        <h5> Champaign County Economic Development Corporation</h5>
+        <address>
+          1817 South Neil Street <br/>
+          Suite 100<br/>
+          Champaign, Illinois 61820<br/>
+          217.359.6261<br/>
+        </address>
+        <a href="mailto:edc@champaigncountyedc.org">
+          edc@champaigncountyedc.org
+        </a>
+        <h4 style="text-align: center; font-weight: bold">
+          Membership is managed with a LinkedIn Group.
+        </h4>
+        <div style="padding-top:1em">
+          <a class="btn btn-success" href="http://www.linkedin.com/groups?gid=3725345&trk=myg_ugrp_ovr">
+            Join Group
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+HTML)
 
-Page.create(title: "History of C.O.D.E", url: '/', content: "          <h2 id=\"what-is-code\">What is CODE?</h2>\r\n\r\n<p>Many members of the group may not know the history of CODE. In brief… The\r\nclosure of Motorola’s Champaign site in 2007 dumped 200+ tech professionals\r\ninto the local job market. We knew that this was more than the community\r\ncould absorb, so a group of employees got together to attract businesses to\r\nthe area. Through their efforts and coordination with other local\r\norganizations, Yahoo! and Qualcomm sites were opened. Since then, we have\r\nhelped to attract other companies and to spawn projects to benefit the local\r\ntech community.</p>\r\n\r\n<p>A small group of people constitute the current CODE board. These are not\r\nelected positions. The leaders are volunteer who have the drive and passion\r\nfor developing the community at their own time and expense. We meet\r\ninformally with local organizations and coordinate mostly through email.\r\n(Personally, I would like a slightly more formal organization.)</p>\r\n\r\n<p>Mostly, the CODE board is an influencing organization. We have no income, but\r\nwe have lots of contacts with local and remote businesses, organizations, and\r\nindividuals.</p>\r\n\r\n<p>Our projects include:</p>\r\n\r\n<ul>\r\n  <li>working with the EDC on a central community job board;</li>\r\n  <li>discussions with Parkland about starting a Mobile Development Certificate program;</li>\r\n  <li>meeting with the U of I to help them understand the needs of local business and to help make hiring from the University more accessible for medium or small business.</li>\r\n</ul>\r\n\r\n<p>We have worked on or discussed many other projects, but we are constrained\r\nby the number of volunteers we have.</p>\r\n\r\n<p>Regarding meetings… We have discussed having quarterly, or even monthly,\r\nmeetings and events of various types for the technical community. The EDC\r\nalready sponsors regular TechMixes. (One was held yesterday evening.) Most\r\nlikely, I think that the first set of open meetings for CODE should be\r\nquarterly meetings to discuss the needs of the technical community and how we\r\ncan act to push those items forward.</p>\r\n\r\n<p>We would gladly be a conduit for helping to advertise meetings on technical\r\ntopics, but we would need someone from the community to volunteer to lead and\r\norganize the meeting. Our current volunteers are at capacity.</p>\r\n\r\n<p>If anyone would like to volunteer to assist in any capacity, we would welcome\r\ntheir help.</p>\r\n")
-
- 
 o = Organization.new(
   name: 'Champaign Organization of Developers and Engineers',
   synopsis: '<p>Promoting a stronger Tech Community through corporate/personnel recruitment, management of a community tech information portal and the support of community/social organizations.</p>',
@@ -25,7 +96,7 @@ o.contacts.build(name: 'Ken Taylor')
 o.contacts.build(name: 'Ross Bundy')
 o.contacts.build(name: 'Terry Wong')
 o.save!
-  
+
 o = Organization.new(
   name: 'Py-CU',
   synopsis: 'Champaign-Urbana\'s Python User Group.',
@@ -42,7 +113,7 @@ o.save!
 o = Organization.new(
   name: 'UX Book Club of Champaign-Urbana',
   synopsis: '<p>Fostering knowledge sharing and networking among area designers and developers interested in user experience, information architecture, web design, mobile design, usability, content strategy, research, wireframing, and prototyping.</p>
-  
+
   <p>Events: We host monthly gatherings to discuss a UX-related book or a group of articles. Conversations often run far afield of the book but are always interesting. You do not have to have read the book to attend and join in.</p>',
   status: 'published',
   submitter_name: 'Joe Pickert',
@@ -55,7 +126,7 @@ o.save!
 o = Organization.new(
   name: 'Champaign Urbana Database Users Group',
   synopsis: '<p>cuDBug is a forum for those in the Champaign-Urbana region interested in the practice of database management. The group facilitates both professional networking and provides opportunities to hear from speakers on database management system topics of interest. cuDBug aims to meet every other month in the University of Illinois Research Park or nearby.</p>
-  
+
   <p>Events: Guest speakers covering various topics related to database management, design, & use.</p>',
   status: 'published',
   submitter_name: 'Joe Pickert',
