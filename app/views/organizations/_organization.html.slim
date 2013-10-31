@@ -1,3 +1,2 @@
-h2[style="padding-top:2em;"] = organization.name
-= simple_format organization.synopsis
-h4.pull-right = link_to 'Details for this Organization', organization_path(organization)
+h3= link_to organization.name, organization_path(organization)
+= simple_format(Truncato.truncate(organization.synopsis, max_length: 192, count_tags: false))

@@ -1,6 +1,10 @@
-h1.page-header
+h2.page-header
+  = link_to "Submit My Organization", new_organization_path, class: "pull-right btn btn-success"
   | Local Tech-Related Organizations
-= link_to 'Submit My Organization', new_organization_path, :class => "pull-right btn btn-success"
-= render(@organizations) || "<h2>No organizations currently listed.</h2>".html_safe
-.clear[style="padding-top:3em"]
+- @organizations.to_a.each_slice(3) do |slice|
+  .row-fluid
+    - slice.each do |organization|
+      .span4.well
+        = render organization
+
 = paginate @organizations
