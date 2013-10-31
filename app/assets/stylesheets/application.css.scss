@@ -16,8 +16,17 @@
 @import "bootstrap-responsive";
 @import "bootswatch/flatly/bootswatch";
 
-body { padding-top: 90px; }
-p { line-height: 200%; }
-.container {
-  width: 900px !important;
+/* Layout */
+
+@media (min-width: 980px) {
+  body { padding-top: 90px; }
+  .container {
+    width: 900px !important;
+  }
+}
+
+/* Content Style */
+
+p {
+  line-height: 200%;
 }
