@@ -31,7 +31,7 @@ gem "rails_admin_tag_list"
 
 # Testing
 gem "better_errors", group: :development
-gem "pry", group: :test
+gem "pry", group: [:development, :test]
 
 # Presentation
 gem "bootstrap-sass"
