@@ -8,10 +8,11 @@ gem "mailchimp-api", "~> 2.0.4"
 gem "memcachier"
 gem "pg", group: :production
 gem "sqlite3", group: :development
+gem "therubyracer"
 
 # Framework
 gem "rack-cache", require: "rack/cache"
-gem "rails", "~> 4.0.0"
+gem "rails", "4.0.1"
 
 # Data
 gem "acts-as-taggable-on"
@@ -31,8 +32,8 @@ gem "better_errors", group: :development
 gem "pry", group: [:development, :test]
 
 # Presentation
-gem "bootstrap-sass"
-gem "bootswatch-rails"
+gem "bootstrap-sass", "~> 2"
+gem "bootswatch-rails", git: "https://github.com/thecurator/bootswatch-rails"
 gem "coffee-rails", "~> 4.0.0"
 gem "jbuilder", "~> 1.2"
 gem "jquery-rails"
