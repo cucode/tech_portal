@@ -2,8 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user && user.role?("admin")
-      can :manage, :all
-    end
+    return unless user
+
+    can :manage, :all
+    can :publish, :all
+    can :unpublish, :all
   end
 end

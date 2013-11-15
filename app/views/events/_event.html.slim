@@ -1,6 +1,13 @@
-h3[style="padding-top:1.5em"] = event.title
-h5 = "#{event.group}"
-h5 = event.time.localtime.strftime("%B %e, %Y %I:%M%p")
+h3[style="padding-top:1.5em"]= event.summary
+h5= "#{event.group}"
+h5= event.dtstart.localtime.strftime("%B %e, %Y %I:%M%p")
 = event.description.html_safe
 .clear
 h4.pull-right  = link_to "See the details of this event...", event.url
+
+- if current_user
+  - if event.unpublished?
+    - if can? :publish, event
+      = button_to("Publish", publish_event_path(event))
+    - if can? :unpublish, event
+      = button_to("Unpublish", unpublish_event_path(event))
