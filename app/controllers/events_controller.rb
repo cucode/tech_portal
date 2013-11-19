@@ -35,7 +35,7 @@ private
   def change_published_status(new_status)
     @event = Event.find(params[:id])
     if new_status
-      @event.unpublish!
+      @event.publish!
       flash[:notice] = "Event published."
     else
       @event.unpublish!
@@ -49,6 +49,12 @@ private
     which_events = status ? Event.published : Event.unpublished
     @events = Kaminari.paginate_array(which_events.order(:dtstart))
     @events = @events.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    @event_json = @events.map do |event|
+      {
+        title: event.summary,
+        start: event.dtstart.strftime("%Y-%m-%d")
+      }
+    end.to_json
 
     render "index"
   end
