@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031180958) do
+ActiveRecord::Schema.define(version: 20131119214717) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -36,14 +36,26 @@ ActiveRecord::Schema.define(version: 20131031180958) do
   add_index "contacts", ["organization_id"], name: "index_contacts_on_organization_id"
 
   create_table "events", force: true do |t|
-    t.string   "title"
+    t.string   "summary"
     t.string   "group"
     t.string   "url"
-    t.datetime "time"
-    t.integer  "duration"
+    t.datetime "dtstart"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "feed_id"
+    t.datetime "dtend"
+    t.datetime "dtstamp"
+    t.string   "location"
+    t.string   "uid"
+    t.boolean  "published",   default: false
+  end
+
+  create_table "feeds", force: true do |t|
+    t.string   "uri",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
   create_table "jobs", force: true do |t|

@@ -1,13 +1,11 @@
 one:
-  title: MyString
+  summary: MyString
   url: MyString
-  time: 2013-08-23 12:32:34
-  duration: 1
+  dtstart: 2013-08-23 12:32:34
   description: MyText
 
 two:
-  title: MyString
+  summary: MyString
   url: MyString
-  time: 2013-08-23 12:32:34
-  duration: 1
+  dtstart: 2013-08-23 12:32:34
   description: MyText

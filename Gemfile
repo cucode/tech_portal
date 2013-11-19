@@ -18,14 +18,17 @@ gem "rails", "4.0.1"
 gem "acts-as-taggable-on"
 gem "ancestry"
 gem "dragonfly", "~>0.9.15"
+gem "icalendar"
+gem "publishable"
 gem "rmagick"
 gem "unidecode"
 gem "validates_email_format_of"
 
 # Authentication
-gem "cancan"
-gem "devise"
+gem "cancan", git: "https://github.com/ollym/cancan.git", branch: "2.0"
+gem "devise", "3.0.4"
 gem "omniauth-linkedin"
+gem "rolify", git: "https://github.com/thecurator/rolify", ref: "b3a2bbdee884d2b0a666619d5d27729acda3bb33"
 
 # Testing
 gem "better_errors", group: :development
@@ -35,6 +38,7 @@ gem "pry", group: [:development, :test]
 gem "bootstrap-sass", "~> 2"
 gem "bootswatch-rails", git: "https://github.com/thecurator/bootswatch-rails"
 gem "coffee-rails", "~> 4.0.0"
+gem "fullcalendar-rails"
 gem "jbuilder", "~> 1.2"
 gem "jquery-rails"
 gem "kaminari"
