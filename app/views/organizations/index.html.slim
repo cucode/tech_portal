@@ -1,6 +1,6 @@
-h2.page-header
+h1.page-header
   = link_to "Submit My Organization", new_organization_path, class: "pull-right btn btn-success"
-  | Local Tech-Related Organizations
+  | Tech-Related Organizations
 - @organizations.to_a.each_slice(3) do |slice|
   .row-fluid
     - slice.each do |organization|

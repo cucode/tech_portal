@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
+
   def show
-    text = (Page.find_by_url(params[:url] || "/").try(:content).try(:html_safe)) || "Page not found"
-    render text: text, layout: true
+    url = params[:url] || "/"
+    text = Page.find_by_url(url).try(:content)
+    text ||= "Page not found"
+    render text: text.html_safe, layout: true
   end
+
 end
