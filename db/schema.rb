@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114220511) do
+ActiveRecord::Schema.define(version: 20131119214717) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -52,9 +52,10 @@ ActiveRecord::Schema.define(version: 20131114220511) do
   end
 
   create_table "feeds", force: true do |t|
-    t.string   "uri",        null: false
+    t.string   "uri",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
   end
 
   create_table "jobs", force: true do |t|

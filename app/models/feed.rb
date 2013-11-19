@@ -5,6 +5,7 @@ class Feed < ActiveRecord::Base
   # Relationships
 
   has_many :events
+  belongs_to :organization
 
 
   # Public Methods
