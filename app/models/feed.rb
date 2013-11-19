@@ -4,7 +4,7 @@ class Feed < ActiveRecord::Base
 
   # Relationships
 
-  has_many :events
+  has_many :events, dependent: :destroy
   belongs_to :organization
 
 

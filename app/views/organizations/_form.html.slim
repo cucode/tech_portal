@@ -8,25 +8,26 @@
     = f.input :website, :input_html => { :class => "span5" }
     = f.input :email, :input_html => { :class => "span5" }
     = f.input :phone, :input_html => { :class => "input-medium" }
-    
+    = f.input :feed_uri, :input_html => { :class => "input-medium" }
+
     h3.text-center Submitter's Information
     = f.input :submitter_name, :input_html => { :class => "span5" }
     = f.input :submitter_email, :input_html => { :class => "span5" }
     = f.input :submitter_phone, :input_html => { :class => "input-medium" }
-    
+
     h3.text-center Organizational Contact Information
     = f.simple_fields_for :contacts do |p|
       = p.input :name, :input_html => { :class => "span5" }
       = p.input :title, :input_html => { :class => "span5" }
-      = p.input :email , :input_html => { :class => "span5" } 
+      = p.input :email, :input_html => { :class => "span5" }
     .clearfix
     = f.link_to_add "Add a contact", :contacts, :class => "offset4 span2 btn btn-success"
     .clearfix
- 
-  
+
+
   .form-actions
     = f.button :submit, "Submit Organization", :class => "btn-success"
-    = "  or  " 
+    = "  or  "
     = link_to "Cancel", organizations_path, :class => "btn btn-warning"
 
 .alert.alert-info.span-5
