@@ -1,7 +1,7 @@
-one: {
-  email: "john.smith@nowhere.com"
-}
+one:
+  email: john.smith@nowhere.com
+  roles: admin
 
-two: {
-  email: "jane.doe@nowhere.com"
-}
+two:
+  email: jane.doe@nowhere.com
+  roles: admin

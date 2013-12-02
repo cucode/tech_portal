@@ -12,21 +12,5 @@
  *= require_self
  *= require_tree .
  */
-@import "bootswatch/flatly/variables";
 @import "bootstrap";
-@import "bootswatch/flatly/bootswatch";
-
-/* Layout */
-
-@media (min-width: 980px) {
-  body { padding-top: 90px; }
-  .container {
-    width: 900px !important;
-  }
-}
-
-/* Content Style */
-
-p {
-  line-height: 200%;
-}
+@import "code"

@@ -1,0 +1,230 @@
+@import url(http://fonts.googleapis.com/css?family=Orbitron);
+$codeBlue: #393F45;
+$codeGrey: #EDEDED;
+
+$bodyWidth: 980px;
+$mainColumnWidth: 804px;
+$bMargin: 95px;
+$outlineWidth:0px;
+
+.container {
+  width: inherit;
+}
+
+.mainColumn{
+padding: 10%;
+outline: $outlineWidth solid red;
+padding-bottom: 0px;
+
+}
+
+.loginRow{
+  height:  30px;
+  margin-bottom:95px;
+}
+
+a.loginTrigger{
+  float: right;
+  margin-bottom: $bMargin;
+  img{
+    padding-left: 6px;
+  }
+}
+
+nav.topNav{
+  background-color: $codeGrey;
+  margin-bottom: $bMargin;
+
+  button{
+    float:left;
+  }
+  ul li a{
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.cornerLogo{
+  position: absolute;
+  top:  -23px;
+  right: 30px;
+  float:right;
+}
+
+.jumbotron{
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+
+  width: 100%;
+  min-height:  300px;
+  margin-bottom: $bMargin;
+  background: url(asset-path("slideshow background.jpg"));
+    -webkit-background-size: 100%; /* For WebKit*/
+    -moz-background-size: 100%;    /* Mozilla*/
+    -o-background-size: 100%;      /* Opera*/
+    background-size: cover;         /* Generic*/
+  .jumbotronText{
+    font-size: 12px;
+    width: 60%;
+    float:left;
+
+
+  }
+}
+
+.mainBlocks .block{
+ background-color: $codeBlue;
+ color: white;
+ font-size: 32px;
+ font-family:  "Orbitron";
+ margin-bottom: 30px;
+}
+
+.mainBlocks{
+ h1{
+   font-family: "Orbitron";
+ }
+ margin-bottom: $bMargin;
+}
+
+.promoBlock{
+  height:  150px;
+}
+.eventBlock{
+  height:  350px;
+  position: relative;
+  text-align: center;
+  img{
+    width: 100%;
+    height: 300px;
+  }
+}
+.signupBlock{
+  height:  350px;
+}
+.eventsBlock{
+  height:  150px;
+}
+
+.eventFooter{
+  height:  100px;
+  background-color: rgba(50,50,50,0.7);
+  font-size: 16px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  &:hover{
+  background-color: rgba(50,50,50,1.0);
+  }
+}
+
+
+
+.article{
+  margin-bottom: $bMargin;
+}
+
+.articleHeader{
+  h1{
+    margin:0px;
+    padding: 0px;
+    font-family: "Orbitron";
+  }
+  img{
+   display:block;
+   width: 80%;
+  }
+}
+
+
+.articleText{
+  margin-top:20px;
+  padding: 0px;
+  border-top: 2px solid black;
+  p{
+    padding: 0px;
+  }
+}
+
+.articleDate{
+  background-color: white;
+  font-family:  "Orbitron";
+  padding: 10px;
+
+  position: relative;
+  top: -10px;
+  left:-15px;
+}
+
+
+
+.codeFooter{
+  outline: $outlineWidth solid blue;
+  background-color: $codeGrey;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.codeFooterInner{
+  margin: 10%;
+  margin-bottom: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding-top: 95px;
+  padding-bottom: 95px;
+  text-align: left;
+  position: relative;
+}
+.codeFooterLogo{
+  width: 10%;
+  background-color: $codeGrey;
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: 45%;
+}
+.footerQuadrant{
+  margin-bottom: 20px;
+  margin-left: 0px;
+  padding: 20px;
+  margin-right:0px;
+}
+
+ul.footerLinks{
+  list-style: none;
+  text-align: left;
+}
+
+ul.footerBenefits{
+  margin-top:10px;
+}
+
+.twitterLink{
+  display: block;
+  .twitterIconHover{display:none}
+  &:hover{
+    .twitterIconHover{
+       display: inline;
+    }
+    .twitterIcon{ display: none;}
+  }
+
+}
+
+.facebookLink{
+  display: block;
+  .facebookIconHover{display:none}
+  &:hover{
+    .facebookIconHover{
+       display: inline;
+    }
+    .facebookIcon{ display: none;}
+  }
+
+}
+
+.footerBlurb{
+overflow: auto;
+}

@@ -34,8 +34,7 @@ gem "better_errors", group: :development
 gem "pry", group: [:development, :test]
 
 # Presentation
-gem "bootstrap-sass", "~> 2"
-gem "bootswatch-rails", git: "https://github.com/thecurator/bootswatch-rails"
+gem "bootstrap-sass", "~> 3"
 gem "coffee-rails", "~> 4.0.0"
 gem "fullcalendar-rails"
 gem "jbuilder", "~> 1.2"

@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20131202185055) do
     t.datetime "updated_at"
   end
 
-  create_table "pages", force: true do |t|
+  create_table "roles", force: true do |t|
     t.string   "name"
     t.integer  "resource_id"
     t.string   "resource_type"

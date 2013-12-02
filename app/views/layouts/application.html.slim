@@ -3,9 +3,8 @@ html
   head
     meta[charset="utf-8"]
     meta[http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"]
-    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
-    title
-      | C.O.D.E.
+    meta { name="viewport" content="width=device-width, initial-scale=1.0" }
+    title C.O.D.E.
     = csrf_meta_tags
     /![if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]
     = stylesheet_link_tag "application", :media => "all"
@@ -15,30 +14,64 @@ html
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
   body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          a.btn.btn-navbar[data-target=".nav-collapse" data-toggle="collapse"]
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          = link_to "C.O.D.E.", root_path, :class => "brand"
-          .container.nav-collapse
-            ul.nav
-              li = link_to "Organizations", organizations_path
-              li = link_to "Events", events_path
-              li = link_to "Employment", jobs_path
-
-            ul.nav.pull-right
-              - if user_signed_in?
-                li= link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete
-              - else
-                li= link_to 'Sign in with LinkedIn', user_omniauth_authorize_path(:linkedin)
-
-    .container
+    .mainColumn.container
+      .loginRow.row
+        - if user_signed_in?
+          = link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete
+        - else
+          = link_to user_omniauth_authorize_path(:linkedin), class: "loginTrigger"
+            | Connect
+            = image_tag "log in icon.jpg"
+      nav.navbar.navbar-static-top.topNav.row { role = "navigation" }
+        .navbar-header
+          = link_to root_path, class: "cornerLogo"
+            = image_tag "code corner logo.png"
+          button { type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavCollapse" }
+            |  Click for menu
+        .collapse.navbar-collapse#topNavCollapse
+          ul.navbar-nav.nav
+            li
+              = link_to "About Us", root_path
+            li
+              = link_to "Events", events_path
+            li
+              = link_to "Organizations", organizations_path
       = bootstrap_flash
       = yield
-      footer
-        p
-          | © C.O.D.E.
-    = javascript_include_tag "application"
+    .codeFooter.container
+      .codeFooterInner.container
+        = image_tag "code corner logo.png", class: "codeFooterLogo"
+        .footerLinks.footerQuadrant.col-12.col-xs-12.col-sm-3
+          ul.footerLinks
+            li
+              a { href="#"}
+                | Join CODE
+            li
+              = link_to "About Us", root_path
+            li
+              = link_to "Events", events_path
+            li
+              = link_to "Organizations", organizations_path
+        .footerBenefits.footerQuadrant.col-12.col-xs-12.col-sm-3
+          | Benefits of being a member:
+          ul.footerBenefits
+            li
+              | benefit 1
+            li
+              | benefit 2
+            li
+              | benefit 3
+            li
+              | etc
+        .footerBlurb.footerQuadrant.col-12.col-xs-12.col-sm-3
+          | Hoki Rabbitfish, trahira weever armorhead yellow perch hillstream loach bocaccio bullhead; killifish banded killifish. Saw shark pikeblenny gray eel-catfish beaked sandfish. Temperate ocean-bass lake chub burbot snipefish...
+        .footerSocial.footerQuadrant.col-12.col-xs-12.col-sm-3
+          | Find CODE on Twitter and Facebook:
+          a.twitterLink { href="#"}
+            = image_tag "twitter icon.jpg", class: "twitterIcon"
+            = image_tag "twitter icon rollover.jpg", class: "twitterIconHover"
+          a.facebookLink { href= "#"}
+            = image_tag "facebook icon.jpg", class: "facebookIcon"
+            = image_tag "facebook icon rollover.jpg", class: "facebookIconHover"
+      | All rights reserved &#169;CODE 2013
+= javascript_include_tag "application"
