@@ -164,3 +164,6 @@ o = Organization.new(
   submitter_name: 'Joe Pickert',
   submitter_email: 'joe@castanet.com'
 )
+
+Role.create(name: "admin")
+Role.create(name: "editor")

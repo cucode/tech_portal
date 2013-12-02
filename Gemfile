@@ -15,7 +15,6 @@ gem "rack-cache", require: "rack/cache"
 gem "rails", "4.0.1"
 
 # Data
-gem "acts-as-taggable-on"
 gem "ancestry"
 gem "dragonfly", "~>0.9.15"
 gem "icalendar"

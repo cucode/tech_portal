@@ -10,7 +10,6 @@ class Organization < ActiveRecord::Base
 
   has_many :contacts, dependent: :destroy
   accepts_nested_attributes_for :contacts, reject_if: :all_blank, allow_destroy: true
-  acts_as_taggable_on :category
   has_one :feed, dependent: :destroy
 
   scope :published, -> { where(status: PUBLISHED) }
