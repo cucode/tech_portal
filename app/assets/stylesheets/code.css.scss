@@ -9,9 +9,21 @@ $outlineWidth:0px;
 
 .container {
   width: inherit;
+  
+}
+
+.fc-day-header, .fc-day-number{
+  font-family: "Orbitron";
 }
 
 .mainColumn{
+  h1, h2, h3{
+    font-family: "Orbitron";
+  }
+ 
+  div.jumbotron{
+    border-radius:0px;
+  }
 padding: 10%;
 outline: $outlineWidth solid red;
 padding-bottom: 0px;
@@ -87,6 +99,10 @@ nav.topNav{
    font-family: "Orbitron";
  }
  margin-bottom: $bMargin;
+}
+
+.block{
+  display: block;
 }
 
 .promoBlock{
