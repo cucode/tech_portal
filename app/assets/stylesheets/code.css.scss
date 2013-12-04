@@ -73,10 +73,7 @@ nav.topNav{
   min-height:  300px;
   margin-bottom: $bMargin;
   background: url(asset-path("slideshow background.jpg"));
-    -webkit-background-size: 100%; /* For WebKit*/
-    -moz-background-size: 100%;    /* Mozilla*/
-    -o-background-size: 100%;      /* Opera*/
-    background-size: cover;         /* Generic*/
+    background-size: 100% 100%;         /* Generic*/
   .jumbotronText{
     font-size: 12px;
     width: 60%;
