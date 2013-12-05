@@ -4,18 +4,19 @@
 
 .mainBlocks.row
   .promoAndEventBlocks.col-8.col-sm-8
-    .promoBlock.block
-      |  promo
-    .eventBlock.block
+    = link_to "#", class: "promoBlock block" do
+      | promo
+    = link_to "#", class: "eventBlock block" do
       h1
         | event
       img {src="http://lorempixel.com/g/400/300/"}
       .eventFooter
         | event description
   .signupAndEventsBlocks.col-4.col-sm-4
-    .signupBlock.block
+    = link_to "#", class: "signupBlock block" do
       | signup
-    = link_to "events", events_path, class: "eventsBlock block"
+    = link_to events_path, class: "eventsBlock block" do
+      | events
 .article.row
   .articleHeader.col-12.col-sm-5
     h1
