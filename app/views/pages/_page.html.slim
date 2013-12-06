@@ -1,0 +1,9 @@
+.article.row
+  .articleHeader.col-12.col-sm-5
+    h1
+      = page.title
+    img {src="http://lorempixel.com/g/200/200"}
+  .articleText.col-12.col-sm-7
+    span.articleDate
+      = page.updated_at.strftime("%B %d, %Y")
+    = page.content.html_safe

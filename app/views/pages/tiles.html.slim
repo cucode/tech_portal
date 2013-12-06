@@ -16,15 +16,5 @@
     .signupBlock.block
       | signup
     = link_to "events", events_path, class: "eventsBlock block"
-.article.row
-  .articleHeader.col-12.col-sm-5
-    h1
-      |  Article
-    img {src="http://lorempixel.com/g/200/200"}
-  .articleText.col-12.col-sm-7
-    span.articleDate
-      | December 2, 2013
-    p
-      | Blacktip reef shark; saber-toothed blenny yellowfin surgeonfish, chub freshwater shark, kuhli loach, hillstream loach. River stingray Sevan trout herring, "Alaska blackfish lyretail, shrimpfish emperor angelfish armorhead catfish."
-    p
-      | Pacific argentine Indian mul California smoothtongue sabertooth fish. Shark Black pickerel broadband dogfish, sea lamprey, conger eel jewfish sand eel yellowfin cutthroat trout. Goosefish spikefish carpsucker louvar, triplefin blenny opah sunfish lighthousefish, bigeye squaretail. Cichlid thorny catfish longnose dace stream catfish prickleback swamp-eel sucker bluntnose minnow porcupinefish, bowfin, buri convict cichlid muskellunge, false moray.
+
+= render @page if @page.present?
