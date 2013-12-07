@@ -15,6 +15,15 @@ CODE::Application.routes.draw do
     end
   end
   resources :jobs, only: [:index]
-  resources :organizations
+  resources :organizations do
+    collection do
+      get :published, to: "organizations#published"
+      get :unpublished, to: "organizations#unpublished"
+    end
+    member do
+      post :publish
+      post :unpublish
+    end
+  end
   resources :pages, only: [:show]
 end

@@ -1,2 +1,6 @@
-= button_to "Import", import_events_path, class: "btn btn-primary", method: :post
-= link_to "Go back", events_path
+.form.form-horizontal.well
+  p
+    | Use this command to import all events from all feeds.
+  .form-actions
+    = button_to "Import", import_events_path, class: "btn btn-primary", method: :post
+    = link_to "Go back", events_path, class: "btn btn-primary"

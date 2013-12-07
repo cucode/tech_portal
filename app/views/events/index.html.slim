@@ -1,3 +1,16 @@
+- if can? :import, :events
+  .pull-right
+    = link_to "Import", import_events_path, class: "btn btn-primary"
+
+- if controller.action_name != "unpublished"
+  - if can? :publish, :events
+    .pull-right
+      = link_to "View Unpublished Events", unpublished_events_path, class: "btn btn-primary"
+- else
+  - if can? :unpublish, :events
+    .pull-right
+      = link_to "View Published Events", published_events_path, class: "btn btn-primary"
+
 h1.page-header Upcoming Local Tech-Related Events
 = render(@events) || "<h2>No events currently listed.</h2>".html_safe
 .clear[style="padding-top:3em"]

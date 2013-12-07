@@ -1,3 +1,12 @@
+- if controller.action_name != "unpublished"
+  - if can? :publish, :organizations
+    .pull-right
+      = link_to "View Unpublished Organizations", unpublished_organizations_path, class: "btn btn-primary"
+- else
+  - if can? :unpublish, :organizations
+    .pull-right
+      = link_to "View Published Organizations", published_organizations_path, class: "btn btn-primary"
+
 h1.page-header
   = link_to "Submit My Organization", new_organization_path, class: "pull-right btn btn-success"
   | Tech-Related Organizations

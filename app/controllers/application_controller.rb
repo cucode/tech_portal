@@ -22,4 +22,17 @@ private
       end
     end
   end
+
+  rescue_from ::CanCan::Error do |exception|
+    Rails.logger.debug "Access denied on #{exception.action} #{exception.subject.inspect}"
+    if user_signed_in?
+      flash[:error] = "Not authorized to view this page."
+      session[:user_return_to] = nil
+      redirect_to root_url
+    else
+      flash[:error] = "You must log in to view this page."
+      session[:user_return_to] = request.url
+      redirect_to root_path
+    end
+  end
 end

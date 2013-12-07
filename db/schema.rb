@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202185055) do
+ActiveRecord::Schema.define(version: 20131206231459) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -74,13 +74,13 @@ ActiveRecord::Schema.define(version: 20131202185055) do
     t.string   "website"
     t.string   "email"
     t.string   "phone"
-    t.string   "status",          limit: 12, default: "pending"
     t.string   "slug"
     t.string   "submitter_name"
     t.string   "submitter_email"
     t.string   "submitter_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",       default: false
   end
 
   create_table "pages", force: true do |t|

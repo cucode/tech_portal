@@ -1,9 +1,9 @@
 class Organization < ActiveRecord::Base
-  has_paper_trail
 
-  PENDING   = "pending"
-  PUBLISHED = "published"
-  STATUSES  = [PENDING, PUBLISHED]
+  # Mixins
+
+  has_paper_trail
+  publishable
 
 
   # Relationships and scopes
@@ -11,9 +11,7 @@ class Organization < ActiveRecord::Base
   has_many :contacts, dependent: :destroy
   accepts_nested_attributes_for :contacts, reject_if: :all_blank, allow_destroy: true
   has_one :feed, dependent: :destroy
-
-  scope :published, -> { where(status: PUBLISHED) }
-  scope :pending,   -> { where(status: PENDING) }
+  accepts_nested_attributes_for :feed
 
 
   # Validations
@@ -32,7 +30,6 @@ class Organization < ActiveRecord::Base
   # with: /\A\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/,
   # message: "Please provide a complete phone number, including the area code."
   #}
-  validates :status, inclusion: { in: STATUSES }, presence: true
 
   validates :submitter_name, presence: { message:
     "Please provide your name in case we need to contact you about your organization." }
@@ -50,10 +47,6 @@ class Organization < ActiveRecord::Base
 
   # Filters
 
-  after_initialize do
-    @new_feed_uri = nil
-  end
-
   before_validation do |org|
     if org.name_changed?
       try = org.name.parameterize.to_s
@@ -64,11 +57,6 @@ class Organization < ActiveRecord::Base
     end
   end
 
-  after_save do |org|
-    feed.destroy if feed.present? && (feed.uri != @new_feed_uri)
-    feed = Feed.create(organization: self, uri: @new_feed_uri) if @new_feed_uri
-  end
-
 
   # Public Methods
 
@@ -76,8 +64,10 @@ class Organization < ActiveRecord::Base
     feed.try(:uri)
   end
 
-  def feed_uri=(feed_uri)
-    @new_feed_uri = feed_uri
+  def feed_uri=(nenw_feed_uri)
+    throw "Can't use this unless persisted" unless persisted?
+    feed.destroy if feed.present? && (feed.uri != new_feed_uri)
+    feed = Feed.create(organization: self, uri: new_feed_uri) if new_feed_uri
   end
 
 end

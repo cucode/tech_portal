@@ -1,2 +1,10 @@
 h3= link_to organization.name, organization_path(organization)
 = simple_format(Truncato.truncate(organization.synopsis, max_length: 192, count_tags: false))
+
+- if current_user
+  - if organization.unpublished?
+    - if can?(:publish, organization)
+      = button_to("Publish", publish_organization_path(organization), class: "btn btn-primary")
+  - else
+    - if can? :unpublish, organization
+      = button_to("Unpublish", unpublish_organization_path(organization), class: "btn btn-primary")

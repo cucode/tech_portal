@@ -1,10 +1,11 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource class: Organization, instance_name: :resource, except: [:create]
+  before_filter :new_organization, only: [:new, :create]
 
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.published.order(name: :asc).page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    get_by_published_status(true)
   end
 
   # GET /organizations/1
@@ -61,25 +62,73 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organization
-      @organization = Organization.published.find(params[:id])
+  def publish
+    change_published_status(true)
+  end
+
+  def published
+    get_by_published_status(true)
+  end
+
+  def unpublish
+    change_published_status(false)
+  end
+
+  def unpublished
+    get_by_published_status(false)
+  end
+
+
+private
+
+  def change_published_status(new_status)
+    @organization = Organization.find(params[:id])
+    if new_status
+      @organization.publish!
+      flash[:notice] = "Organization published."
+    else
+      @organization.unpublish!
+      flash[:notice] = "Organization unpublished."
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def organization_params
-      params.require(:organization).permit(
-        :feed_uri,
-        :name,
-        :synopsis,
-        :website,
-        :email,
-        :phone,
-        :submitter_name,
-        :submitter_email,
-        :submitter_phone,
-        {:contacts_attributes => [:id, :name, :title, :email, :_destroy]}
-      )
+    redirect_to organizations_path
+  end
+
+  def get_by_published_status(status)
+    which_organizations = status ? Organization.published : Organization.unpublished
+    @organizations = Kaminari.paginate_array(which_organizations.order(:created_at))
+    @organizations = @organizations.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    @organization_json = @organizations.map do |organization|
+      {
+        title: organization.name,
+        start: organization.created_at.strftime("%Y-%m-%d")
+      }
+    end.to_json
+
+    render "index"
+  end
+
+  def new_organization
+    @organization = Organization.new(params[:organization] ? organization_params : nil)
+  end
+
+  def organization_params
+    if params[:organization][:feeds]
+      params[:organization][:feed_attributes] = params[:organization][:feeds]
+      params[:organization].delete(:feeds)
     end
+
+    params.require(:organization).permit(
+      { feed_attributes: [ :uri ] },
+      :name,
+      :synopsis,
+      :website,
+      :email,
+      :phone,
+      :submitter_name,
+      :submitter_email,
+      :submitter_phone,
+      { contacts_attributes: [:id, :name, :title, :email, :_destroy] }
+    )
+  end
 end
