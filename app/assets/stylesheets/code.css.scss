@@ -164,11 +164,21 @@ nav.topNav{
   height:  350px;
   position: relative;
   text-align: center;
+  background-image: url(asset-path("eventBlockBg.jpg"));
+  background-size:  auto 100%;
   img{
     width: 100%;
     height: 300px;
   }
 }
+
+.eventOverlay{
+  background-color: $codeBlue;
+  width: 73%;
+  float:right;
+  height: 100%;
+}
+
 .signupBlock{
   height:  350px;
   background-image: url(asset-path("joinBg.jpg"));
@@ -212,23 +222,6 @@ nav.topNav{
   position: absolute;
   z-index: 99;
 }
-
-
-
-
-
-.eventFooter{
-  height:  100px;
-  background-color: rgba(50,50,50,0.7);
-  font-size: 16px;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  &:hover{
-  background-color: rgba(50,50,50,1.0);
-  }
-}
-
 
 
 .article{
@@ -293,7 +286,7 @@ nav.topNav{
   display: block;
   position: absolute;
   top: -25px;
-  right: 45%;
+  left: 45%;
 }
 .footerQuadrant{
   margin-bottom: 20px;
