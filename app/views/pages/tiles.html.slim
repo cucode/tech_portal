@@ -1,11 +1,17 @@
 .jumbotron
   .jumbotronText
-    |     hi hello theres akrja;sli kfja;ls dkfja;s ldkfja;lsjf jsaldfkjas;ldf sdafj;lsakjf;lsadkjf sldajfas f;laskjf jsdkf as flasjd flsakdj
+    |    
 
 .mainBlocks.row
   .promoAndEventBlocks.col-8.col-sm-8
     = link_to "#", class: "promoBlock block" do
-      | promo
+      .promoOverlay
+        | Code
+      .promoContent
+        .promoBgLeft
+        .promoBgRight
+        p  
+          |  About Us
     = link_to "#", class: "eventBlock block" do
       h1
         | event
@@ -16,7 +22,11 @@
     = link_to "#", class: "signupBlock block" do
       | signup
     = link_to events_path, class: "eventsBlock block" do
-      | events
+       .eventsBgLeft
+       .eventsBgRight
+       p
+         |  Events
+
 .article.row
   .articleHeader.col-12.col-sm-5
     h1

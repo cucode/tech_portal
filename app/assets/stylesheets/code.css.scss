@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Orbitron);
-$codeBlue: #393F45;
+$codeBlue: #0074b2;
 $codeGrey: #EDEDED;
 
 $bodyWidth: 980px;
@@ -26,8 +26,9 @@ $outlineWidth:0px;
   }
 padding: 10%;
 outline: $outlineWidth solid red;
+padding-top: 20px;
 padding-bottom: 0px;
-
+  max-width: 1300px;
 }
 
 .loginRow{
@@ -38,15 +39,18 @@ padding-bottom: 0px;
 a.loginTrigger{
   float: right;
   margin-bottom: $bMargin;
+  padding-right: 20px;
   img{
     padding-left: 6px;
   }
 }
 
 nav.topNav{
+  width: 100%;
   background-color: $codeGrey;
   margin-bottom: $bMargin;
-
+  position:relative;
+  left: 10px;
   button{
     float:left;
   }
@@ -70,9 +74,10 @@ nav.topNav{
   -webkit-border-radius: 0px;
 
   width: 100%;
+  padding: 0px;
   min-height:  300px;
   margin-bottom: $bMargin;
-  background: url(asset-path("slideshow background.jpg"));
+  background: url(asset-path("codeSlide.jpg"));
     background-size: 100% 100%;         /* Generic*/
   .jumbotronText{
     font-size: 12px;
@@ -103,9 +108,58 @@ nav.topNav{
   display: block;
 }
 
-.promoBlock{
+ .mainBlocks .promoBlock{
+  color: $codeBlue;
+  background-color: white;
   height:  150px;
+  .promoContent{
+    float:left;
+    width: 73%;
+    padding-top: 50px;
+    position:relative;
+  }
+  .promoOverlay{
+    background-color: $codeBlue;
+    color: white;
+    width: 27%;
+    padding-top: 50px;
+    float: left;
+    height: 100%;
+  }
+  
 }
+ 
+.promoContent .promoBgLeft{
+  width: 150px;
+  height: 150px;
+  background-image: url(asset-path("promoPatternLeft.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px; 
+  z-index: 0;
+}
+
+.promoContent .promoBgRight{
+  width: 150px;
+  height: 150px;
+  background-image: url(asset-path("promoPatternRight.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.promoContent p{
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+}
+
+
 .eventBlock{
   height:  350px;
   position: relative;
@@ -117,10 +171,51 @@ nav.topNav{
 }
 .signupBlock{
   height:  350px;
+  background-image: url(asset-path("joinBg.jpg"));
+  background-size: 100% auto;
+  background-repeat: no-repeat;
 }
-.eventsBlock{
+.mainBlocks .eventsBlock{
+  position: relative;
   height:  150px;
+  background-color:white;
 }
+
+.eventsBlock .eventsBgRight{
+  width: 90px;
+  height: 150px;
+  background-image: url(asset-path("eventsPatternRight.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.eventsBlock .eventsBgLeft{
+  width: 90px;
+  height: 150px;
+  background-image: url(asset-path("eventsPatternLeft.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.eventsBlock p{
+  padding-top: 50px;
+  color: $codeBlue;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+}
+
+
+
+
 
 .eventFooter{
   height:  100px;
@@ -149,6 +244,7 @@ nav.topNav{
   img{
    display:block;
    width: 80%;
+   margin-top: 8px;
   }
 }
 
@@ -192,7 +288,7 @@ nav.topNav{
   position: relative;
 }
 .codeFooterLogo{
-  width: 10%;
+  width: 75px;
   background-color: $codeGrey;
   display: block;
   position: absolute;
