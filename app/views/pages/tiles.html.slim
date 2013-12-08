@@ -1,20 +1,33 @@
 .jumbotron
   .jumbotronText
-    |  hello theres akrja;sli kfja;ls dkfja;s ldkfja;lsjf jsaldfkjas;ldf sdafj;lsakjf;lsadkjf sldajfas f;laskjf jsdkf as flasjd flsakdj
+    |
 
 .mainBlocks.row
   .promoAndEventBlocks.col-8.col-sm-8
-    .promoBlock.block
-      |  promo
-    .eventBlock.block
-      h1
-        | event
-      img {src="http://lorempixel.com/g/400/300/"}
-      .eventFooter
-        | event description
+    = link_to "#", class: "promoBlock block" do
+      .promoOverlay
+        = image_tag "aboutUsLogo.png"
+      .promoContent
+        .promoBgLeft
+        .promoBgRight
+        p
+          |  About Us
+    = link_to "#", class: "eventBlock block" do
+      .eventOverlay
+        .eventDescription
+          |  Follow up on the latest C.O.D.E. event!
+        .eventArrow
+          = image_tag "eventRecapArrow.jpg"
+          p
+            |  Read More
   .signupAndEventsBlocks.col-4.col-sm-4
-    .signupBlock.block
-      | signup
-    = link_to "events", events_path, class: "eventsBlock block"
+    = link_to "#", class: "signupBlock block" do
+      .signupOverlay
+        | Join Us
+    = link_to events_path, class: "eventsBlock block" do
+       .eventsBgLeft
+       .eventsBgRight
+       p
+         |  Events
 
 = render @page if @page.present?

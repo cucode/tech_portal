@@ -21,13 +21,13 @@ html
         - else
           = link_to user_omniauth_authorize_path(:linkedin), class: "loginTrigger"
             | Connect
-            = image_tag "log in icon.jpg"
       nav.navbar.navbar-static-top.topNav.row { role = "navigation" }
         .navbar-header
           = link_to root_path, class: "cornerLogo"
-            = image_tag "code corner logo.png"
+            = image_tag "hiResLogoRevised.png"
           button { type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavCollapse" }
-            |  Click for menu
+            span.menuArrow.glyphicon.glyphicon-arrow-down
+            | menu
         .collapse.navbar-collapse#topNavCollapse
           ul.navbar-nav.nav
             li
@@ -42,7 +42,7 @@ html
       = yield
     .codeFooter.container
       .codeFooterInner.container
-        = image_tag "code corner logo.png", class: "codeFooterLogo"
+        = image_tag "hiResLogoRevised.png", class: "codeFooterLogo"
         .footerLinks.footerQuadrant.col-12.col-xs-12.col-sm-3
           ul.footerLinks
             li
@@ -68,12 +68,11 @@ html
         .footerBlurb.footerQuadrant.col-12.col-xs-12.col-sm-3
           | Hoki Rabbitfish, trahira weever armorhead yellow perch hillstream loach bocaccio bullhead; killifish banded killifish. Saw shark pikeblenny gray eel-catfish beaked sandfish. Temperate ocean-bass lake chub burbot snipefish...
         .footerSocial.footerQuadrant.col-12.col-xs-12.col-sm-3
-          | Find CODE on Twitter and Facebook:
-          a.twitterLink { href="#"}
-            = image_tag "twitter icon.jpg", class: "twitterIcon"
-            = image_tag "twitter icon rollover.jpg", class: "twitterIconHover"
-          a.facebookLink { href= "#"}
-            = image_tag "facebook icon.jpg", class: "facebookIcon"
-            = image_tag "facebook icon rollover.jpg", class: "facebookIconHover"
+          p
+            |Find CODE on Twitter and Facebook:
+          a.twitterLink.block { href="#"}
+            = image_tag "twitterLogoHiRes.png"  
+          a.facebookLink.block { href= "#"}
+            = image_tag "facebookLogoHiRes.png"
       | All rights reserved &#169;CODE 2013
 = javascript_include_tag "application"

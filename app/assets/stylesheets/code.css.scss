@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Orbitron);
-$codeBlue: #393F45;
+$codeBlue: #0074b2;
 $codeGrey: #EDEDED;
 
 $bodyWidth: 980px;
@@ -9,13 +9,26 @@ $outlineWidth:0px;
 
 .container {
   width: inherit;
+
+}
+
+.fc-day-header, .fc-day-number{
+  font-family: "Orbitron";
 }
 
 .mainColumn{
+  h1, h2, h3{
+    font-family: "Orbitron";
+  }
+
+  div.jumbotron{
+    border-radius:0px;
+  }
 padding: 10%;
 outline: $outlineWidth solid red;
+padding-top: 20px;
 padding-bottom: 0px;
-
+  max-width: 1300px;
 }
 
 .loginRow{
@@ -26,15 +39,21 @@ padding-bottom: 0px;
 a.loginTrigger{
   float: right;
   margin-bottom: $bMargin;
+  padding-right: 20px;
   img{
     padding-left: 6px;
   }
 }
 
 nav.topNav{
+  width: 100%;
   background-color: $codeGrey;
   margin-bottom: $bMargin;
-
+  position:relative;
+   button{
+color: $codeBlue;
+}
+  left: 10px;
   button{
     float:left;
   }
@@ -47,10 +66,15 @@ nav.topNav{
 
 
 .cornerLogo{
+  img{
+    width: 125px;
+    height: 104px;
+  }
   position: absolute;
-  top:  -23px;
+  top:  -27px;
   right: 30px;
   float:right;
+  z-index: 99;
 }
 
 .jumbotron{
@@ -58,13 +82,11 @@ nav.topNav{
   -webkit-border-radius: 0px;
 
   width: 100%;
+  padding: 0px;
   min-height:  300px;
   margin-bottom: $bMargin;
-  background: url(asset-path("slideshow background.jpg"));
-    -webkit-background-size: 100%; /* For WebKit*/
-    -moz-background-size: 100%;    /* Mozilla*/
-    -o-background-size: 100%;      /* Opera*/
-    background-size: cover;         /* Generic*/
+  background: url("http://cucode-prd.s3.amazonaws.com/assets/images/codeSlide.jpg");
+    background-size: 100% 100%;         /* Generic*/
   .jumbotronText{
     font-size: 12px;
     width: 60%;
@@ -80,6 +102,7 @@ nav.topNav{
  font-size: 32px;
  font-family:  "Orbitron";
  margin-bottom: 30px;
+ text-align: center;
 }
 
 .mainBlocks{
@@ -89,37 +112,155 @@ nav.topNav{
  margin-bottom: $bMargin;
 }
 
-.promoBlock{
-  height:  150px;
+.block{
+  display: block;
 }
+
+ .mainBlocks .promoBlock{
+  color: $codeBlue;
+  background-color: white;
+  height:  150px;
+  .promoContent{
+    float:left;
+    width: 73%;
+    padding-top: 50px;
+    position:relative;
+  }
+  .promoOverlay{
+    background-color: $codeBlue;
+    color: white;
+    width: 27%;
+    padding-top: 0px;
+    float: left;
+    height: 100%;
+    img{
+      padding: 0px;
+      width: 80%;
+      padding-top: 18px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+}
+
+.promoContent .promoBgLeft{
+  width: 150px;
+  height: 150px;
+  background-image: url(asset-path("promoPatternLeft.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.promoContent .promoBgRight{
+  width: 150px;
+  height: 150px;
+  background-image: url(asset-path("promoPatternRight.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.promoContent p{
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+}
+
+
 .eventBlock{
   height:  350px;
   position: relative;
   text-align: center;
+  background-image: url("http://cucode-prd.s3.amazonaws.com/assets/images/eventBlockBg.jpg");
+  background-size:  auto 100%;
   img{
     width: 100%;
     height: 300px;
   }
 }
-.signupBlock{
-  height:  350px;
-}
-.eventsBlock{
-  height:  150px;
-}
 
-.eventFooter{
-  height:  100px;
-  background-color: rgba(50,50,50,0.7);
-  font-size: 16px;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  &:hover{
-  background-color: rgba(50,50,50,1.0);
+.eventOverlay{
+  background-color: $codeBlue;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right:20px;
+  width: 73%;
+  float:right;
+  height: 100%;
+  img{
+    width: 25%;
+    height: auto;
+  }
+  p{
+    font-size: 12px;
+  }
+  .eventDescription{
+    padding: 20px;
+    font-size: 24px;
   }
 }
 
+.signupBlock{
+  height:  350px;
+  background-image: url("http://cucode-prd.s3.amazonaws.com/assets/images/joinBg.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  position: relative;
+  .signupOverlay{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 70px;
+    padding: 10px;
+    padding-bottom:10px;
+    background-color: $codeBlue;
+  }
+}
+.mainBlocks .eventsBlock{
+  position: relative;
+  height:  150px;
+  background-color:white;
+}
+
+.eventsBlock .eventsBgRight{
+  width: 90px;
+  height: 150px;
+  background-image: url(asset-path("eventsPatternRight.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 0;
+}
+
+.eventsBlock .eventsBgLeft{
+  width: 90px;
+  height: 150px;
+  background-image: url(asset-path("eventsPatternLeft.png"));
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.eventsBlock p{
+  padding-top: 50px;
+  color: $codeBlue;
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  z-index: 99;
+}
 
 
 .article{
@@ -135,6 +276,7 @@ nav.topNav{
   img{
    display:block;
    width: 80%;
+   margin-top: 8px;
   }
 }
 
@@ -169,6 +311,7 @@ nav.topNav{
 
 .codeFooterInner{
   margin: 10%;
+  margin-top: 50px;
   margin-bottom: 10px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -178,12 +321,14 @@ nav.topNav{
   position: relative;
 }
 .codeFooterLogo{
-  width: 10%;
+  width: 5%;
+  min-width: 70px;
   background-color: $codeGrey;
   display: block;
+  padding:  10px;
   position: absolute;
-  top: -25px;
-  right: 45%;
+  top: -27px;
+  left: 45%;
 }
 .footerQuadrant{
   margin-bottom: 20px;
@@ -195,6 +340,7 @@ nav.topNav{
 ul.footerLinks{
   list-style: none;
   text-align: left;
+  padding-left:0px;
 }
 
 ul.footerBenefits{
@@ -202,27 +348,30 @@ ul.footerBenefits{
 }
 
 .twitterLink{
-  display: block;
-  .twitterIconHover{display:none}
-  &:hover{
-    .twitterIconHover{
-       display: inline;
-    }
-    .twitterIcon{ display: none;}
+ margin: 4px;
+  img{
+    width: 20px;
+    height: 28px;
   }
-
+  padding: 20px;
+  float: left;
+  background-color: #444;
 }
 
 .facebookLink{
-  display: block;
-  .facebookIconHover{display:none}
-  &:hover{
-    .facebookIconHover{
-       display: inline;
-    }
-    .facebookIcon{ display: none;}
+  margin: 4px;
+   img{
+    width: 20px;
+    height: 28px;
   }
 
+   padding: 20px;
+   float: left;
+   background-color: #444;
+}
+
+.facebookLink:hover, .twitterLink:hover{
+  background-color: #222;
 }
 
 .footerBlurb{
