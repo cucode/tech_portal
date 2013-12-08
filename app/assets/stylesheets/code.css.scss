@@ -348,27 +348,30 @@ ul.footerBenefits{
 }
 
 .twitterLink{
-  display: block;
-  .twitterIconHover{display:none}
-  &:hover{
-    .twitterIconHover{
-       display: inline;
-    }
-    .twitterIcon{ display: none;}
+ margin: 4px;
+  img{
+    width: 20px;
+    height: 28px;
   }
-
+  padding: 20px;
+  float: left;
+  background-color: #444;
 }
 
 .facebookLink{
-  display: block;
-  .facebookIconHover{display:none}
-  &:hover{
-    .facebookIconHover{
-       display: inline;
-    }
-    .facebookIcon{ display: none;}
+  margin: 4px;
+   img{
+    width: 20px;
+    height: 28px;
   }
+ 
+   padding: 20px;
+   float: left;
+   background-color: #444;
+}
 
+.facebookLink:hover, .twitterLink:hover{
+  background-color: #222;
 }
 
 .footerBlurb{
