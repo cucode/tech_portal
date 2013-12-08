@@ -24,9 +24,10 @@ html
       nav.navbar.navbar-static-top.topNav.row { role = "navigation" }
         .navbar-header
           = link_to root_path, class: "cornerLogo"
-            = image_tag "code corner logo.png"
+            = image_tag "hiResLogoRevised.png"
           button { type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavCollapse" }
-            |  Click for menu
+            span.menuArrow.glyphicon.glyphicon-arrow-down
+            | menu
         .collapse.navbar-collapse#topNavCollapse
           ul.navbar-nav.nav
             li
@@ -39,7 +40,7 @@ html
       = yield
     .codeFooter.container
       .codeFooterInner.container
-        = image_tag "code corner logo.png", class: "codeFooterLogo"
+        = image_tag "hiResLogoRevised.png", class: "codeFooterLogo"
         .footerLinks.footerQuadrant.col-12.col-xs-12.col-sm-3
           ul.footerLinks
             li

@@ -6,7 +6,7 @@
   .promoAndEventBlocks.col-8.col-sm-8
     = link_to "#", class: "promoBlock block" do
       .promoOverlay
-        | Code
+        = image_tag "aboutUsLogo.png"
       .promoContent
         .promoBgLeft
         .promoBgRight
@@ -14,10 +14,16 @@
           |  About Us
     = link_to "#", class: "eventBlock block" do
       .eventOverlay
-        |  event
+        .eventDescription
+          |  Follow up on the latest C.O.D.E. event!
+        .eventArrow
+          = image_tag "eventRecapArrow.jpg"
+          p
+            |  Read More
   .signupAndEventsBlocks.col-4.col-sm-4
     = link_to "#", class: "signupBlock block" do
-      | signup
+      .signupOverlay
+        | Join Us
     = link_to events_path, class: "eventsBlock block" do
        .eventsBgLeft
        .eventsBgRight
