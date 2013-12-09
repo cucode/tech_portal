@@ -105,15 +105,45 @@ color: $codeBlue;
   }
   #introSlide{
     background-color:green;
-    background: url(asset-path("codeSlide.jpg"));
+    background: url(asset-path("codeSlideBg.jpg"));
     background-size: 100% 100%;         
+    color: white;
+    .introText{
+      padding-top: 20px;
+      font-size: 30px;
+      font-family: "Orbitron";
+      text-align: center;
+      position: relative;
+      top: 18px;
+    }
+    .introLogo{
+      text-align: center;
+      img{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  #techMixSlide{
+    background: url(asset-path("techmixSlideBg.jpg"));
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    overflow: auto;
   }
   .prevSlideButton{
-  position: absolute;
-  top: 0px;
+    color: white;
+    position: absolute;
+    bottom: 18px;
+    right: 40px;
   }
   .nextSlideButton{
-  bottom: 0px;
+    color: white;
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
   }
   margin-bottom: $bMargin;
 }
@@ -415,7 +445,7 @@ overflow: auto;
 
 
 @media all and (max-width: 769px){
-  .loginRow, a.loginTrigger, nav.topNav, .jumbotron, .mainBlocks, .article{
+  .loginRow, a.loginTrigger, nav.topNav, .jumbotron, .mainBlocks, .article, #carouselTry{
     margin-bottom: $singleColumnModeMargin;
   }
 }
