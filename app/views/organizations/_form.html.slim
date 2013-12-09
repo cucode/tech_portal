@@ -1,34 +1,38 @@
 = simple_nested_form_for(@organization, html: { :class => 'form-horizontal' }) do |f|
   = f.error_notification
 
-  .form-inputs
-    h3.text-center Organization Information
+  .alert.alert-info.span-5
+    | All submissions are reviewed prior to publication on the site. Your organization will not appear until it is approved by a staff member.
+
+  .col-12.col-xs-12.col-sm-4
+    h3 Organization Information
     = f.input :name, :input_html => { :class => "span5" }
-    = f.input :synopsis, :input_html => { :rows => 15, :class => "span5" }
+    = f.input :synopsis, :input_html => { :columns => 20, :rows => 5, :class => "span5" }
     = f.input :website, :input_html => { :class => "span5" }
     = f.input :email, :input_html => { :class => "span5" }
     = f.input :phone, :input_html => { :class => "input-medium" }
     = f.simple_fields_for :feeds do |p|
       = p.input :uri, :input_html => { :class => "input-medium" }
-    h3.text-center Submitter's Information
+
+  .col-12.col-xs-12.col-sm-4
+    h3 Submitter's Information
     = f.input :submitter_name, :input_html => { :class => "span5" }
     = f.input :submitter_email, :input_html => { :class => "span5" }
     = f.input :submitter_phone, :input_html => { :class => "input-medium" }
 
-    h3.text-center Organizational Contact Information
+  .col-12.col-xs-12.col-sm-4
+    h3 Organizational Contact Information
     = f.simple_fields_for :contacts do |p|
       = p.input :name, :input_html => { :class => "span5" }
       = p.input :title, :input_html => { :class => "span5" }
       = p.input :email, :input_html => { :class => "span5" }
-    .clearfix
+    br
     = f.link_to_add "Add a contact", :contacts, :class => "offset4 span2 btn btn-success"
-    .clearfix
 
+  .clearfix
 
-  .form-actions
+  br
+
+  .form-actions.well
     = f.button :submit, "Submit Organization", :class => "btn-success"
-    = "  or  "
     = link_to "Cancel", organizations_path, :class => "btn btn-warning"
-
-.alert.alert-info.span-5
-	| All submissions are reviewed prior to publication on the site. Your organization will not appear until it is approved by a staff member.
