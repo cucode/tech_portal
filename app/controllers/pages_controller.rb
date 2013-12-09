@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   layout "application"
 
   def show
-    url = params[:url] || "/"
+    url = params[:url] || "/tiles"
 
     view_path = "app/views/pages#{url}.html.slim"
     if File.exist?(view_path)
