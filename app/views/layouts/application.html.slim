@@ -17,7 +17,7 @@ html
     .mainColumn.container
       .loginRow.row
         - if user_signed_in?
-          = link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete
+          = link_to "Logout #{current_user.email}", destroy_user_session_path, method: :delete, class: "logoutTrigger"
         - else
           = link_to user_omniauth_authorize_path(:linkedin), class: "loginTrigger"
             | Connect
@@ -71,7 +71,7 @@ html
           p
             |Find CODE on Twitter and Facebook:
           a.twitterLink.block { href="#"}
-            = image_tag "twitterLogoHiRes.png"  
+            = image_tag "twitterLogoHiRes.png"
           a.facebookLink.block { href= "#"}
             = image_tag "facebookLogoHiRes.png"
       | All rights reserved &#169;CODE 2013
