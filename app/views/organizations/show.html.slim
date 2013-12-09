@@ -1,5 +1,5 @@
 h1.page-header = @organization.name
-    
+
 h4 Purpose
 = simple_format @organization.synopsis
 
@@ -35,3 +35,7 @@ table.table-striped.table-bordered.span6
 
 p.clearfix
 = link_to 'Back to Organization list', organizations_path, :class => "btn btn-success"
+- if can?(:edit, @organization)
+  = link_to("Edit", edit_organization_path(@organization), class: "btn btn-primary")
+- if can?(:destroy, @organization)
+  = link_to("Destroy", organization_path(@organization), method: "delete", class: "btn btn-danger", confirm: "Are you sure?")

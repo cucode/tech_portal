@@ -16,6 +16,15 @@ class Ability
       org.published?
     end
 
+    if user.has_role?(:editor)
+      can [:read], :organizations do |org|
+        user.has_role?(:editor, org) || org.published?
+      end
+      can [:update, :destroy], :organizations do |org|
+        user.has_role?(:editor, org)
+      end
+    end
+
     if user.has_role?(:admin)
       can :create, :all
       can :update, :all

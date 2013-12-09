@@ -31,6 +31,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     respond_to do |format|
       if @organization.save
+        current_user.add_role :editor, @organization
         format.html { redirect_to organizations_path, notice: 'Thank you for your submission. It will be published once it is reviewed by the staff.' }
         format.json { render action: 'show', status: :created, location: @organization }
       else
@@ -59,7 +60,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     respond_to do |format|
-      format.html { redirect_to organizations_url }
+      format.html { redirect_to organizations_url, notice: "Organization was destroyed." }
       format.json { head :no_content }
     end
   end
