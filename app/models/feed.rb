@@ -19,6 +19,8 @@ class Feed < ActiveRecord::Base
     end
 
     ical = Icalendar.parse(open(uri))
+    return unless ical.first.present?
+
     ical.first.events.each do |event|
       Event.create( # Won't save the event if it's already in the database.
         summary:     event.summary,
