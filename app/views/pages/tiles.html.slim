@@ -19,7 +19,7 @@
 
 .mainBlocks.row
   .promoAndEventBlocks.col-8.col-sm-8
-    = link_to "#", class: "promoBlock block" do
+    = link_to root_path, class: "promoBlock block" do
       .promoOverlay
         = image_tag "aboutUsLogo.png"
       .promoContent
@@ -28,7 +28,7 @@
         p
           |  About Us
       .promoHover
-    = link_to "#", class: "eventBlock block" do
+    = link_to events_path, class: "eventBlock block" do
       .eventOverlay
         .eventDescription
           |  Follow up on the latest C.O.D.E. event!
@@ -37,7 +37,7 @@
           p
             |  Read More
   .signupAndEventsBlocks.col-4.col-sm-4
-    = link_to "#", class: "signupBlock block" do
+    = link_to linked_in_uri, class: "signupBlock block" do
       .signupOverlay
         | Join Us
     = link_to events_path, class: "eventsBlock block" do

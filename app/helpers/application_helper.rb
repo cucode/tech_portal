@@ -20,4 +20,8 @@ module ApplicationHelper
       message
     end)
   end
+
+  def linked_in_uri
+    "http://www.linkedin.com/groups?gid=3725345&trk=myg_ugrp_ovr"
+  end
 end
