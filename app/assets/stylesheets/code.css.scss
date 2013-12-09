@@ -5,6 +5,7 @@ $codeGrey: #EDEDED;
 $bodyWidth: 980px;
 $mainColumnWidth: 804px;
 $bMargin: 95px;
+$singleColumnModeMargin: 40px;
 $outlineWidth:0px;
 
 .container {
@@ -105,23 +106,30 @@ color: $codeBlue;
  text-align: center;
 }
 
+
 .mainBlocks{
- h1{
-   font-family: "Orbitron";
- }
- margin-bottom: $bMargin;
+  h1{
+    font-family: "Orbitron";
+  }
+  margin-bottom: $bMargin;
 }
+ 
+.mainBlocks .block:hover, .mainBlocks .block:focus, .mainBlocks .block:active{
+  outline: 2px solid black;
+}
+
 
 .block{
   display: block;
 }
 
- .mainBlocks .promoBlock{
+.mainBlocks .promoBlock{
   color: $codeBlue;
+  width: 100%;
   background-color: white;
   height:  150px;
   .promoContent{
-    float:left;
+    float:right;
     width: 73%;
     padding-top: 50px;
     position:relative;
@@ -143,6 +151,7 @@ color: $codeBlue;
   }
   
 }
+
  
 .promoContent .promoBgLeft{
   width: 150px;
@@ -263,6 +272,10 @@ color: $codeBlue;
 }
 
 
+
+
+
+
 .article{
   margin-bottom: $bMargin;
 }
@@ -376,4 +389,11 @@ ul.footerBenefits{
 
 .footerBlurb{
 overflow: auto;
+}
+
+
+@media all and (max-width: 769px){
+  .loginRow, a.loginTrigger, nav.topNav, .jumbotron, .mainBlocks, .article{
+    margin-bottom: $singleColumnModeMargin;
+  }
 }
