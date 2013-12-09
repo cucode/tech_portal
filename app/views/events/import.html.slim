@@ -1,6 +1,4 @@
-.form.form-horizontal.well
-  p
-    | Use this command to import all events from all feeds.
-  .form-actions
-    = button_to "Import", import_events_path, class: "btn btn-primary", method: :post
-    = link_to "Go back", events_path, class: "btn btn-primary"
+h1 Import all events from all iCAL feeds?
+.form-actions
+  = link_to "Import Now", import_events_path, class: "btn btn-primary", method: :post
+  = link_to "Go back", events_path, class: "btn btn-warning"
