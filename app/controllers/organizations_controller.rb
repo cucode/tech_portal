@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
-  load_and_authorize_resource class: Organization, instance_name: :organization, except: [:create]
+  load_and_authorize_resource class: Organization, instance_name: :organization, except: [:create, :update]
+  before_filter :load_resource, only: [:update]
   before_filter :new_organization, only: [:new, :create]
 
   # GET /organizations
@@ -107,6 +108,10 @@ private
     end.to_json
 
     render "index"
+  end
+
+  def load_resource
+    @organization = Organization.find(params[:id])
   end
 
   def new_organization

@@ -12,7 +12,8 @@
     = f.input :email, :input_html => { :class => "span5" }
     = f.input :phone, :input_html => { :class => "input-medium" }
     = f.simple_fields_for :feeds do |p|
-      = p.input :uri, :input_html => { :class => "input-medium" }
+      = p.input :uri, :input_html => { :class => "input-medium", value: @organization.feed_uri }
+
 
   .col-12.col-xs-12.col-sm-4
     h3 Submitter's Information
