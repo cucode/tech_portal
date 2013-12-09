@@ -1,19 +1,18 @@
-- if can? :import, :events
-  .pull-right
-    = link_to "Import", import_events_path, class: "btn btn-primary"
+.pull-right
+  - if can? :import, :events
+    = link_to "Import events from all feeds", import_events_path, class: "btn btn-primary"
 
-- if controller.action_name != "unpublished"
-  - if can? :publish, :events
-    .pull-right
-      = link_to "View Unpublished Events", unpublished_events_path, class: "btn btn-primary"
-- else
-  - if can? :unpublish, :events
-    .pull-right
-      = link_to "View Published Events", published_events_path, class: "btn btn-primary"
+  - if controller.action_name != "unpublished"
+    - if can? :publish, :events
+        = link_to "View Unpublished Events", unpublished_events_path, class: "btn btn-primary"
+  - else
+    - if can? :unpublish, :events
+        = link_to "View Published Events", published_events_path, class: "btn btn-primary"
 
-h1.page-header Upcoming Local Tech-Related Events
+h1.page-header Local Tech-Related Events
+
+#calendar data-events=@event_json
+
 = render(@events) || "<h2>No events currently listed.</h2>".html_safe
 .clear[style="padding-top:3em"]
 = paginate @events
-
-#calendar data-events=@event_json

@@ -8,9 +8,12 @@ $bMargin: 95px;
 $singleColumnModeMargin: 40px;
 $outlineWidth:0px;
 
+.btn + .btn {
+  margin-left: 1em;
+}
+
 .container {
   width: inherit;
-
 }
 
 .fc-day-header, .fc-day-number{
