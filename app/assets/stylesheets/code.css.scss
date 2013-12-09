@@ -392,7 +392,7 @@ color: $codeBlue;
   display: block;
   padding:  10px;
   position: absolute;
-  top: -27px;
+  top: -32px;
   left: 45%;
 }
 .footerQuadrant{
@@ -448,4 +448,13 @@ overflow: auto;
   .loginRow, a.loginTrigger, nav.topNav, .jumbotron, .mainBlocks, .article, #carouselTry{
     margin-bottom: $singleColumnModeMargin;
   }
+}
+
+#new_organization .help-inline{
+  display: block;
+  width: 174px;
+  color: $codeBlue;
+  border: 1px solid #ddd;
+  border-top: none;
+  padding: 5px;
 }
