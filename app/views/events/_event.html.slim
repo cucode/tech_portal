@@ -8,6 +8,6 @@ h4.pull-right  = link_to "See the details of this event...", event.url
 - if current_user
   - if event.unpublished?
     - if can? :publish, event
-      = button_to("Publish", publish_event_path(event))
+      = button_to("Publish", publish_event_path(event), class: "btn btn-primary")
     - if can? :unpublish, event
-      = button_to("Unpublish", unpublish_event_path(event))
+      = button_to("Unpublish", unpublish_event_path(event), class: "btn btn-primary")
