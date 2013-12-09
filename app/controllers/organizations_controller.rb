@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  load_and_authorize_resource class: Organization, instance_name: :resource, except: [:create]
+  load_and_authorize_resource class: Organization, instance_name: :organization, except: [:create]
   before_filter :new_organization, only: [:new, :create]
 
   # GET /organizations
@@ -21,6 +21,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations/1/edit
   def edit
+
   end
 
   # POST /organizations
