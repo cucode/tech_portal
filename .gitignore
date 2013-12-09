@@ -20,3 +20,13 @@
 /config/initializers/session_store.rb
 /config/initializers/devise.rb
 /lib/tasks/update.rb
+
+
+#Ignore big content images
+
+/app/assets/images/eventBlockBg.jpg
+/app/assets/images/codeSlide.jpg
+/app/assets/images/joinBg.jpg
+/app/assets/images/codeSlideBg.jpg
+/app/assets/images/techmixSlideBg.jpg
+

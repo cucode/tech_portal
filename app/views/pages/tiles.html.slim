@@ -1,17 +1,16 @@
-.jumbotron
-  #carouselTry.carousel.slide {data-ride="carousel"}
-    ol.carousel-indicators
-      li.active {data-target="#carouselTry" data-slide-to="0"}
-      li {data-target="#carouselTry" data-slide-to="1"}
-    .carousel-inner
-      .item.active
-        | hi
-      .item
-        | yooo
-    a.left.carousel-control {href="#carouselTry" data-slide="prev"}
-      | previous
-    a.right.carousel-control {href="#carouselTry" data-slide="next"}
-      | next
+#carouselTry.carousel.slide {data-ride="carousel"}
+  ol.carousel-indicators
+    li.active {data-target="#carouselTry" data-slide-to="0"}
+    li {data-target="#carouselTry" data-slide-to="1"}
+  .carousel-inner
+    .item.active#introSlide
+      | 
+    .item#techMixSlide
+      |
+  a.carouselcontrol.prevSlideButton {href="#carouselTry" data-slide="prev"}
+    | previous
+  a.carouselcontrol.nextSlideButton {href="#carouselTry" data-slide="next"}
+    | next
 
 
 
