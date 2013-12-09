@@ -14,6 +14,11 @@ CODE::Application.routes.draw do
       post :unpublish
     end
   end
+  resources :feeds do
+    collection do
+      get :special, to: "feeds#special"
+    end
+  end
   resources :jobs, only: [:index]
   resources :organizations do
     collection do

@@ -1,0 +1,9 @@
+.pull-right
+  - if can? :create, :feed
+    = link_to "New Feed", new_feed_path, class: "btn btn-success"
+
+h1.page-header
+  | Feeds
+
+= render(@feeds) || "<h2>No feeds listed.</h2>".html_safe
+= paginate @feeds

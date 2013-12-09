@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     if request.post?
       count = Event.count
       errors = []
-      Feed.published.each do |feed|
+      (Feed.published + Feed.special).each do |feed|
         begin
           feed.import_events!
         rescue Exception => ex

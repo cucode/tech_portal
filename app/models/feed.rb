@@ -7,9 +7,21 @@ class Feed < ActiveRecord::Base
   has_many :events, dependent: :destroy
   belongs_to :organization
   scope :published,   -> { Feed.joins(:organization).where(organizations: { published: true }) }
+  scope :special,     -> { Feed.where(organization_id: nil) }
   scope :unpublished, -> { Feed.joins(:organization).where(organizations: { published: false }) }
 
-  # Scopes
+
+  # Validations
+
+  validates :uri, presence: true
+
+
+  # Public Properties
+
+  def special?
+    organization.nil?
+  end
+
 
   # Public Methods
 
@@ -29,6 +41,7 @@ class Feed < ActiveRecord::Base
         dtstart:     event.dtstart,
         feed:        Feed.first,
         location:    event.location,
+        published:   !special?,
         uid:         event.uid,
         url:         event.url.to_s)
     end

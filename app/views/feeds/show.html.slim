@@ -1,0 +1,10 @@
+h1 Feed
+= render @feed
+
+h1 This Feed's Events
+= render(@feed.events) || "<p>No events imported.</p>".html_safe
+
+- if can?(:edit, @feed)
+  = link_to("Edit", edit_feed_path(@feed), class: "btn btn-primary")
+- if can?(:destroy, @feed)
+  = link_to("Destroy", feed_path(@feed), method: "delete", class: "btn btn-danger", confirm: "Are you sure?")
