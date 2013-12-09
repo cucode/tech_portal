@@ -1,6 +1,21 @@
-.jumbotron
-  .jumbotronText
-    |
+#carouselTry.carousel.slide {data-ride="carousel"}
+  .carousel-inner
+    .item.active#introSlide
+      .introText
+        | Introducing
+      .introLogo
+        = image_tag "aboutUsLogo.png"
+    .item#techMixSlide
+      h1
+        | TECHMIX!
+      p
+        | TechMix! events are organized by the Champaign County Economic Development Corporation as a networking opportunity for local technology companies to meet each other.  These events are targeted for engineers, scientists, and entrepreneurs working in the tech sector to learn more about other companies in the industry locally.
+      p
+        | Check out our events page for our next meeting!
+  a.carouselcontrol.prevSlideButton {href="#carouselTry" data-slide="prev"}
+    | <<
+  a.carouselcontrol.nextSlideButton {href="#carouselTry" data-slide="next"}
+    | >>
 
 .mainBlocks.row
   .promoAndEventBlocks.col-8.col-sm-8
@@ -12,6 +27,7 @@
         .promoBgRight
         p
           |  About Us
+      .promoHover
     = link_to "#", class: "eventBlock block" do
       .eventOverlay
         .eventDescription

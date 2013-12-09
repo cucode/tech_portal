@@ -5,6 +5,7 @@ $codeGrey: #EDEDED;
 $bodyWidth: 980px;
 $mainColumnWidth: 804px;
 $bMargin: 95px;
+$singleColumnModeMargin: 40px;
 $outlineWidth:0px;
 
 .container {
@@ -96,6 +97,58 @@ color: $codeBlue;
   }
 }
 
+#carouselTry{
+  height: 300px;
+  .item{
+    height: 300px;
+    background-color:red;
+  }
+  #introSlide{
+    background-color:green;
+    background: url("http://cucode-prd.s3.amazonaws.com/assets/images/codeSlideBg.jpg");
+    background-size: 100% 100%;
+    color: white;
+    .introText{
+      padding-top: 20px;
+      font-size: 30px;
+      font-family: "Orbitron";
+      text-align: center;
+      position: relative;
+      top: 18px;
+    }
+    .introLogo{
+      text-align: center;
+      img{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  #techMixSlide{
+    background: url("http://cucode-prd.s3.amazonaws.com/assets/images/techmixSlideBg.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    overflow: auto;
+  }
+  .prevSlideButton{
+    color: white;
+    position: absolute;
+    bottom: 18px;
+    right: 40px;
+  }
+  .nextSlideButton{
+    color: white;
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+  }
+  margin-bottom: $bMargin;
+}
+
+
 .mainBlocks .block{
  background-color: $codeBlue;
  color: white;
@@ -105,23 +158,30 @@ color: $codeBlue;
  text-align: center;
 }
 
+
 .mainBlocks{
- h1{
-   font-family: "Orbitron";
- }
- margin-bottom: $bMargin;
+  h1{
+    font-family: "Orbitron";
+  }
+  margin-bottom: $bMargin;
 }
+
+.mainBlocks .block:hover, .mainBlocks .block:focus, .mainBlocks .block:active{
+  outline: 2px solid black;
+}
+
 
 .block{
   display: block;
 }
 
- .mainBlocks .promoBlock{
+.mainBlocks .promoBlock{
   color: $codeBlue;
+  width: 100%;
   background-color: white;
   height:  150px;
   .promoContent{
-    float:left;
+    float:right;
     width: 73%;
     padding-top: 50px;
     position:relative;
@@ -263,6 +323,10 @@ color: $codeBlue;
 }
 
 
+
+
+
+
 .article{
   margin-bottom: $bMargin;
 }
@@ -376,4 +440,11 @@ ul.footerBenefits{
 
 .footerBlurb{
 overflow: auto;
+}
+
+
+@media all and (max-width: 769px){
+  .loginRow, a.loginTrigger, nav.topNav, .jumbotron, .mainBlocks, .article, #carouselTry{
+    margin-bottom: $singleColumnModeMargin;
+  }
 }
