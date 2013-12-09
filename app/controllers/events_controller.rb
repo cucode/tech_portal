@@ -64,8 +64,10 @@ private
     @events = @events.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
     @event_json = @events.map do |event|
       {
+        description: event.description,
+        start: event.dtstart.strftime("%Y-%m-%d"),
         title: event.summary,
-        start: event.dtstart.strftime("%Y-%m-%d")
+        url: event.url
       }
     end.to_json
 
