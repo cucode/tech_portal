@@ -3,8 +3,9 @@ CODE::Application.routes.draw do
 
   root "pages#show"
 
-  resources :events, only: [:index] do
+  resources :events do
     collection do
+      get :blog, to: "events#blog"
       get :published, to: "events#published"
       get :unpublished, to: "events#unpublished"
       match :import, to: "events#import", via: [:get, :post]

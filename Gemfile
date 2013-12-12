@@ -4,6 +4,7 @@ source "https://rubygems.org"
 # Services
 gem "dalli"
 gem "feedzirra"
+gem "fog"
 gem "mailchimp-api", "~> 2.0.4"
 gem "memcachier"
 gem "pg", group: :production
@@ -16,6 +17,7 @@ gem "rails", "4.0.1"
 
 # Data
 gem "ancestry"
+gem "carrierwave"
 gem "dragonfly", "~>0.9.15"
 gem "icalendar"
 gem "publishable"

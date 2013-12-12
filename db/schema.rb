@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206231459) do
+ActiveRecord::Schema.define(version: 20131212152929) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(version: 20131206231459) do
     t.datetime "dtstamp"
     t.string   "location"
     t.string   "uid"
-    t.boolean  "published",   default: false
+    t.boolean  "published",    default: false
+    t.string   "event_photo"
+    t.text     "blog_content"
   end
 
   create_table "feeds", force: true do |t|

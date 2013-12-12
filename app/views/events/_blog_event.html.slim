@@ -1,0 +1,7 @@
+h3
+  =link_to blog_event.summary, blog_event.url
+h4= blog_event.dtstart.localtime.strftime("%B %e, %Y %I:%M%p")
+img.img-thumbnail.pull-right src=blog_event.event_photo
+p= blog_event.blog_content
+
+= render partial: "events/event_commands", locals: { event: blog_event }

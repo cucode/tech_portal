@@ -1,13 +1,8 @@
-h3[style="padding-top:1.5em"]= event.summary
+h3[style="padding-top:1.5em"]
+  =link_to event.summary, event_path(event)
 h5= "#{event.group}"
 h5= event.dtstart.localtime.strftime("%B %e, %Y %I:%M%p")
 = event.description.html_safe
 .clear
 h4.pull-right  = link_to "See the details of this event...", event.url
-
-- if current_user
-  - if event.unpublished?
-    - if can? :publish, event
-      = button_to("Publish", publish_event_path(event), class: "btn btn-primary")
-    - if can? :unpublish, event
-      = button_to("Unpublish", unpublish_event_path(event), class: "btn btn-primary")
+= render partial: "event_commands", locals: { event: event }

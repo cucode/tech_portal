@@ -1,0 +1,17 @@
+= simple_nested_form_for(@resource, html: { :class => 'form-horizontal', multipart: true }) do |f|
+  = f.error_notification
+  .form-group
+    = f.label 'Event Photo', class: "lab"
+    br
+    = image_tag(@resource.event_photo_url, class: "img-thumbnail") if @resource.event_photo?
+    = f.file_field :event_photo unless @resource.event_photo?
+    = f.hidden_field :event_photo_cache
+  - if @resource.event_photo?
+    .checkbox
+      label
+        = f.check_box :remove_event_photo
+        | Remove Photo
+  .form-group
+    = f.label 'Blog Content'
+    = f.text_area :blog_content, class: "form-control"
+  = submit_tag(nil, class: "btn btn-primary")

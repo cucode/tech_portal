@@ -17,6 +17,13 @@ class Ability
     end
 
     if user.has_role?(:editor)
+      can [:read], :events do |event|
+        event.organization && user.has_role?(:editor, event.organization) || event.published
+      end
+      can [:update, :destroy], :events do |event|
+        event.organization && user.has_role?(:editor, event.organization)
+      end
+
       can [:read], :organizations do |org|
         user.has_role?(:editor, org) || org.published?
       end

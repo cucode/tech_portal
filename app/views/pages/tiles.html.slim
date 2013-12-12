@@ -47,3 +47,6 @@
          |  Events
 
 = render @page if @page.present?
+
+h2 Recent Events
+= render(partial: "events/blog_event", collection: Event.blogged) || "<h2>None.</h2>".html_safe
