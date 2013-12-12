@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
-//= require_tree .
 //= require bootstrap
+//= require bootstrap/carousel
+//= require bootstrap/transition
 //= require jquery_nested_form
 //= require fullcalendar
+//= require_tree .
