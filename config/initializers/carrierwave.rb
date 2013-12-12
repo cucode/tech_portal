@@ -1,6 +1,8 @@
-REQUIRED_KEYS = %w{AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY FOG_DIRECTORY}
-REQUIRED_KEYS.each do |key|
-  throw "Required key #{key} missing" unless ENV[key]
+unless ARGV.join.include?("assets:precompile") || $0.include?("rake")
+  REQUIRED_KEYS = %w{AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY FOG_DIRECTORY}
+  REQUIRED_KEYS.each do |key|
+    throw "Required key #{key} missing" unless ENV[key]
+  end
 end
 
 CarrierWave.configure do |config|

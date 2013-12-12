@@ -6,7 +6,7 @@ one:
   website: http://my-website-one.com
   email: my-email-one@my-domain.com
   phone: 1
-  status: published
+  published: true
   slug: slug-one
   submitter_name: MyString
   submitter_email: my-submitter-email-one@my-domain.com
@@ -18,7 +18,7 @@ two:
   website: http://my-website-two.com
   email: my-email-two@my-domain.com
   phone: 1
-  status: published
+  published: true
   slug: slug-two
   submitter_name: MyString
   submitter_email: my-submitter-email-two@my-domain.com
