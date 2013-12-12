@@ -39,7 +39,7 @@ class Feed < ActiveRecord::Base
         description: event.description,
         dtend:       event.dtend,
         dtstart:     event.dtstart,
-        feed:        Feed.first,
+        feed:        self,
         location:    event.location,
         published:   !special?,
         uid:         event.uid,
