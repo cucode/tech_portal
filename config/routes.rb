@@ -30,5 +30,6 @@ CODE::Application.routes.draw do
       post :unpublish
     end
   end
+  get ":url", to: "pages#show"
   resources :pages, only: [:show]
 end
