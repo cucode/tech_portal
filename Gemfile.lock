@@ -1,16 +1,16 @@
 GIT
+  remote: https://github.com/andrewjanssen/rolify
+  revision: b3a2bbdee884d2b0a666619d5d27729acda3bb33
+  ref: b3a2bbdee884d2b0a666619d5d27729acda3bb33
+  specs:
+    rolify (3.3.0.rc4)
+
+GIT
   remote: https://github.com/ollym/cancan.git
   revision: f1cebde51a87be149b4970a3287826bb63c0ac0b
   branch: 2.0
   specs:
     cancan (2.0.0.alpha)
-
-GIT
-  remote: https://github.com/thecurator/rolify
-  revision: b3a2bbdee884d2b0a666619d5d27729acda3bb33
-  ref: b3a2bbdee884d2b0a666619d5d27729acda3bb33
-  specs:
-    rolify (3.3.0.rc4)
 
 GEM
   remote: https://rubygems.org/

@@ -1,4 +1,4 @@
-ruby "2.0.0"
+ruby "2.1.0"
 source "https://rubygems.org"
 
 # Services
@@ -29,7 +29,7 @@ gem "validates_email_format_of"
 gem "cancan", git: "https://github.com/ollym/cancan.git", branch: "2.0"
 gem "devise", "3.0.4"
 gem "omniauth-linkedin"
-gem "rolify", git: "https://github.com/thecurator/rolify", ref: "b3a2bbdee884d2b0a666619d5d27729acda3bb33"
+gem "rolify", git: "https://github.com/andrewjanssen/rolify", ref: "b3a2bbdee884d2b0a666619d5d27729acda3bb33"
 
 # Testing
 gem "better_errors", group: :development
