@@ -20,7 +20,6 @@ CODE::Application.routes.draw do
       get :special, to: "feeds#special"
     end
   end
-  resources :jobs, only: [:index]
   resources :organizations do
     collection do
       get :published, to: "organizations#published"
