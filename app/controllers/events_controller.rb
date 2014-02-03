@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   load_and_authorize_resource class: Event, instance_name: :resource, except: [:create, :update]
 
   def import
-    authorize! :import, :events
+    authorize! :import, :events unless has_valid_cron_token?
     if request.post?
       count = Event.count
       errors = []

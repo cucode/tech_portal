@@ -21,6 +21,10 @@ module ApplicationHelper
     end)
   end
 
+  def has_valid_cron_token?
+    (params[:cron_token] == ENV["CRON_TOKEN"]) && ENV["CRON_TOKEN"].present?
+  end
+
   def linked_in_uri
     "http://www.linkedin.com/groups?gid=3725345&trk=myg_ugrp_ovr"
   end
