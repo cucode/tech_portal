@@ -12,8 +12,8 @@
     = f.input :email, :input_html => { :class => "span5" }
     = f.input :phone, :input_html => { :class => "input-medium" }
     = f.simple_fields_for :feeds do |p|
-      = p.input :uri, :input_html => { :class => "input-medium", value: @organization.feed_uri }
-
+      = p.input :uri, :input_html => { :class => "input-medium", value: @organization.feed_uri }, :label => "Feed URL"
+      span.help-text Put your feed's URL here. Eg: http://myorganization.com/events.rss or webcal://myorganization.com/events.ical.
 
   .col-12.col-xs-12.col-sm-4
     h3 Submitter's Information

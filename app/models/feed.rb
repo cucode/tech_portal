@@ -13,7 +13,7 @@ class Feed < ActiveRecord::Base
 
   # Validations
 
-  validates :uri, presence: true
+  validates :uri, presence: true, format: /\A(http|webcal).*/
 
 
   # Public Properties
@@ -30,7 +30,7 @@ class Feed < ActiveRecord::Base
       throw "Not allowed to import events if Organization is unpublished."
     end
 
-    ical = Icalendar.parse(open(uri))
+    ical = Icalendar.parse(open(uri.gsub(/\Awebcal:\/\//, "http://")))
     return unless ical.first.present?
 
     ical.first.events.each do |event|
