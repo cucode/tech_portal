@@ -8,8 +8,11 @@ class EventsController < ApplicationController
       errors = []
       (Feed.published + Feed.special).each do |feed|
         begin
+          logger.debug "[events_controller.import] Importing feed #{feed.uri}..."
           feed.import_events!
+          logger.debug "[events_controller.import] Done."
         rescue Exception => ex
+          logger.debug "[events_controller.import] Exception: #{ex}."
           errors << ex
         end
       end
