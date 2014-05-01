@@ -1,5 +1,6 @@
 module ApplicationHelper
   ALERT_TYPES = [:error, :info, :notice, :success, :warning]
+  DEFAULT_PAGE_LENGTH = 20
 
   def bootstrap_flash
     output = ""

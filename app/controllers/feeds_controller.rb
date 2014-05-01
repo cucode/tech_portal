@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    get_by_published_status(true)
+    get_by_published_status(true, page_length: nil) # Show all events.
   end
 
   # GET /feeds/1
@@ -102,10 +102,14 @@ private
     redirect_to feeds_path
   end
 
-  def get_by_published_status(status)
+  def get_by_published_status(status, options={})
+    options[:page_length] = DEFAULT_PAGE_LENGTH unless options.keys.index(:page_length)
     which_feeds = status ? Feed.published : Feed.unpublished
-    @feeds = Kaminari.paginate_array(which_feeds.order(:created_at))
-    @feeds = @feeds.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    @feeds = which_feeds.order(:dtstart)
+    if options[:page_length]
+      @feeds = Kaminari.paginate_array(feeds)
+      @feeds = @feeds.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    end
 
     render "index"
   end

@@ -97,10 +97,15 @@ private
     redirect_to organizations_path
   end
 
-  def get_by_published_status(status)
+  def get_by_published_status(status, options={})
+    options[:page_length] = DEFAULT_PAGE_LENGTH unless options.keys.index(:page_length)
     which_organizations = status ? Organization.published : Organization.unpublished
-    @organizations = Kaminari.paginate_array(which_organizations.order(:created_at))
-    @organizations = @organizations.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    @organizations = which_organizations.order(:created_at)
+    if options[:page_length]
+      @organizations = Kaminari.paginate_array(@organizations)
+      @organizations = @organizations.page(params[:page]).per(options[:page_length])
+    end
+
     @organization_json = @organizations.map do |organization|
       {
         title: organization.name,

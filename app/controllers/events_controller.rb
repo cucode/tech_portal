@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    get_by_published_status(true)
+    get_by_published_status(true, page_length: nil) # Show all events.
   end
 
   # GET /events/1
@@ -133,10 +133,15 @@ private
     redirect_to events_path
   end
 
-  def get_by_published_status(status)
+  def get_by_published_status(status, options={})
+    options[:page_length] = DEFAULT_PAGE_LENGTH unless options.keys.index(:page_length)
     which_events = status ? Event.published : Event.unpublished
-    @events = Kaminari.paginate_array(which_events.order(:dtstart))
-    @events = @events.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    @events = which_events.order(:dtstart)
+    if options[:page_length]
+      @events = Kaminari.paginate_array(@events)
+      @events = @events.page(params[:page]).per(DEFAULT_PAGE_LENGTH)
+    end
+
     @event_json = @events.map do |event|
       {
         description: event.description,

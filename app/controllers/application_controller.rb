@@ -6,9 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :process_auth_token
   include ApplicationHelper
 
-  DEFAULT_PAGE_LENGTH = 20
-
-
 private
 
   def process_auth_token
