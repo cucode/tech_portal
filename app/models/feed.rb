@@ -2,6 +2,11 @@ require "open-uri"
 
 class Feed < ActiveRecord::Base
 
+  # Constants
+
+  RSS_IMPORT_TIMEOUT_SEC = 4
+
+
   # Relationships and Scopes
 
   has_many :events, dependent: :destroy
@@ -30,7 +35,8 @@ class Feed < ActiveRecord::Base
       throw "Not allowed to import events if Organization is unpublished."
     end
 
-    ical = Icalendar.parse(open(uri.gsub(/\Awebcal:\/\//, "http://")))
+    fixed_uri = uri.gsub(/\Awebcal:\/\//, "http://")
+    ical = Icalendar.parse(open(fixed_uri, read_timeout: RSS_IMPORT_TIMEOUT_SEC))
     return unless ical.first.present?
 
     ical.first.events.each do |event|
