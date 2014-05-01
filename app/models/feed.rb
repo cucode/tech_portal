@@ -36,13 +36,13 @@ class Feed < ActiveRecord::Base
     end
 
     fixed_uri = uri.gsub(/\Awebcal:\/\//, "http://")
-    logger.debug "[Feed.import_events!] Opening #{fixed_uri}..."
+    logger.info "[Feed.import_events!] Opening #{fixed_uri}..."
     ical = Icalendar.parse(open(fixed_uri, read_timeout: RSS_IMPORT_TIMEOUT_SEC))
-    logger.debug "[Feed.import_events!] Opened."
+    logger.info "[Feed.import_events!] Opened."
     return unless ical.first.present?
 
     ical.first.events.each do |event|
-      logger.debug "[Feed.import_events!] Importing event #{event.uid}: #{event.summary}."
+      logger.info "[Feed.import_events!] Importing event #{event.uid}: #{event.summary}."
       Event.create( # Won't save the event if it's already in the database.
         summary:     event.summary,
         description: event.description,
