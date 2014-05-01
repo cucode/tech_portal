@@ -1,4 +1,5 @@
 require "open-uri"
+require "timeout"
 
 class Feed < ActiveRecord::Base
 
@@ -37,7 +38,12 @@ class Feed < ActiveRecord::Base
 
     fixed_uri = uri.gsub(/\Awebcal:\/\//, "http://")
     logger.info "[Feed.import_events!] Opening #{fixed_uri}..."
-    ical = Icalendar.parse(open(fixed_uri, read_timeout: RSS_IMPORT_TIMEOUT_SEC))
+
+    # ICalendar.parse can lock up, so put it in a timeout block.
+    ical = nil
+    Timeout::timeout(RSS_IMPORT_TIMEOUT_SEC) {
+      ical = Icalendar.parse(open(fixed_uri, read_timeout: RSS_IMPORT_TIMEOUT_SEC))
+    }
     logger.info "[Feed.import_events!] Opened."
     return unless ical.first.present?
 
